@@ -1,32 +1,25 @@
-# /reconcile — Football C consistency stage
+# /reconcile — FOM_WORK Football C reconciliation
 
 Model: GPT-6 Luna, Medium.
 
-Authority:
-`models/football/prompts/04_WORK_POST_SLATE_AUDIT.md` at the workflow's pinned
-SlipTrace SHA.
+Use only frozen FOM_WORK receipts from the same workflow.
 
-Compare frozen prospective Football C receipts with outcomes without rewriting
-history.
+Diagnose:
 
-## Diagnose consistency before changing C
+- sweep/application drift;
+- rank/application drift;
+- certificate compiler drift;
+- evidence asymmetry;
+- tournament incentive omission;
+- WAIT reachability drift;
+- execution/process miss;
+- genuine C model miss;
+- normal variance.
 
-Use one primary class:
+Use `C_MODEL_MISS` only after proving the pinned C rules were applied
+consistently from prospective evidence.
 
-- `INTAKE_APPLICATION_DRIFT`
-- `RANK_APPLICATION_DRIFT`
-- `CERTIFICATE_COMPILER_DRIFT`
-- `CROSS_STAGE_AUTHORITY_DRIFT`
-- `EVIDENCE_ASYMMETRY`
-- `TOURNAMENT_INCENTIVE_OMISSION`
-- `WAIT_REACHABILITY_DRIFT`
-- `EXECUTION_PROCESS_MISS`
-- `C_MODEL_MISS`
-- `NORMAL_VARIANCE`
-
-A `C_MODEL_MISS` means the current C rules were applied consistently from
-prospective evidence but the football judgment still failed.
-
-One result does not justify a C rule change.
+Legacy route output may be compared only after FOM outputs are frozen and may
+not rewrite the FOM diagnosis.
 
 Output `fom-c-reconciliation-v1`.
