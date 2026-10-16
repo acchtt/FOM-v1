@@ -1,10 +1,11 @@
 # FOM v1 — /sweep Work launcher
 
 Model: **GPT-6 Luna**  
-Effort: **Medium**
+Effort: **Medium**  
+Route owner: **FOM_WORK**
 
-FOM is not a separate football model. This task executes/checks the current
-Football V4 sweep contract for Football C.
+This is the first stage of the FOM Work route. It is not the legacy SlipTrace
+/sweep.
 
 ## Invocation
 
@@ -12,48 +13,51 @@ Football V4 sweep contract for Football C.
 /sweep <requested window>
 ```
 
-## 1. Resolve Football C authority
+## Start a new FOM workflow
 
-At the beginning of a **new workflow**:
+Create a new `workflow_id` and freeze:
 
-1. resolve current `acchtt/SlipTrace` `main` commit SHA;
-2. read at that exact SHA:
-   - `models/football/CURRENT_MODEL.md`
-   - `models/football/stages_v4/SWEEP.md`
-3. verify CURRENT_MODEL says Football C is the only active model and V4 is the
-   active sweep/rank path;
-4. pin that SHA in the output receipt.
+```text
+route_owner = FOM_WORK
+```
 
-Do not copy old FOM intake rules over the SlipTrace authority.
+Resolve current SlipTrace main and pin the Football C authority SHA.
 
-## 2. Execute the V4 intake contract
+## Execute the Football C/V4 sweep procedure
 
-Follow the pinned SlipTrace `SWEEP.md` exactly, including complete date
-surfaces, current exclusions, goals-first research admission and any protected
-competition exceptions defined there.
+At the pinned SHA load:
 
-FOM must not add an alternative league policy, quota, odds gate, lineup gate or
-prediction rule.
+- `models/football/CURRENT_MODEL.md`
+- `models/football/stages_v4/SWEEP.md`
+- active V4 source/intake modules referenced by that authority.
 
-Sweep is intake only. Do not produce C FOCUS/WATCH/PASS, certificates, supported
-burden or ACT/WAIT/PASS.
+Execute the V4 intake procedure in this Work task:
 
-## 3. Output consistency wrapper
+- complete required date surfaces;
+- apply current exclusions;
+- retain protected exceptions;
+- perform goals-first intake/research triage;
+- preserve source/provenance evidence;
+- freeze the FOM sweep cohort.
 
-Return one `fom-c-sweep-v1` receipt containing:
+Do not use a legacy SlipTrace sweep receipt as the result of this stage.
 
-- `workflow_id`;
+## Output
+
+Return `fom-c-sweep-v1` with:
+
+- FOM workflow/run IDs;
+- `route_owner = FOM_WORK`;
 - pinned Football C authority;
 - requested window;
-- native V4 receipt reference/status;
-- eligible/pending/excluded match IDs;
+- FOM Work sweep evidence references;
+- eligible/pending/excluded IDs;
 - consistency checks.
 
-The native V4 receipt remains the football intake authority. The FOM receipt
-exists to prove which C revision and procedure were used.
+This stage emits no C FOCUS/WATCH/PASS and no ACT/WAIT/PASS.
 
-Validate before freezing:
+Validate before handoff:
 
 ```bash
-python tools/validate_receipt.py <receipt.json>
+python tools/validate_receipt.py <fom-sweep.json>
 ```
