@@ -1,0 +1,35 @@
+name: FOM Football C consistency contracts
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  receipt-contracts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run receipt consistency tests
+        run: python -m unittest discover -s tests -v
+      - name: Verify schema is Football C only
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          schema=json.loads(Path("schemas/fom-receipt-v1.schema.json").read_text())
+          text=Path("schemas/fom-receipt-v1.schema.json").read_text()
+          assert "FOM_FOCUS" not in text
+          assert "FOM_WATCH" not in text
+          assert "FOM_DROP" not in text
+          assert '"active_model"' in text and '"C"' in text
+          assert "acchtt/SlipTrace" in text
+          print("PASS — FOM receipts enforce Football C-only authority")
+          PY

@@ -2,62 +2,102 @@
 
 ## Purpose
 
-FOM v1 is an independent shadow football model. It exists to test whether a
-separate research and decision architecture adds useful signal without
-contaminating Football C.
+FOM v1 exists to make Football C more consistent.
 
-## Independence boundary
+SlipTrace remains the production implementation and rule authority. FOM is a
+separate ChatGPT Work orchestration/audit project that:
 
-FOM has its own repository, Work tasks, receipts, terminology and audit trail.
+1. loads the exact current Football C authority;
+2. pins that authority revision for one workflow;
+3. assigns cost-effective Work models to operational stages;
+4. validates stage handoffs;
+5. detects rule-application drift before proposing model changes.
 
-Before a FOM output is frozen, prohibited inputs include:
+## Single-model authority
 
-- Football C rank/order;
-- Football C FOCUS/WATCH/PASS state;
-- Football C supported burden;
-- Football C ACT/WAIT/PASS decision;
-- Football C model commentary;
-- post-match knowledge.
+There is exactly one football model:
 
-Allowed shared inputs are neutral facts: fixture identity, kickoff,
-competition, team/player news, source-backed form, tournament context,
-score/minute for live work, and user-provided market screenshots when a
-decision stage explicitly accepts them.
+```text
+Football C
+```
+
+GPT-6 Luna, GPT-6.1 Sol and GPT-6 Astra are **operators/reviewers**, not
+football models. Their answers are valid only when they follow the pinned
+Football C rules.
+
+FOM must never produce an alternative model vote.
+
+## Authority ownership
+
+Production rule authority lives in `acchtt/SlipTrace`.
+
+At the beginning of a new workflow, resolve current SlipTrace `main` and freeze
+its commit SHA in the sweep receipt.
+
+Every downstream receipt in the workflow must carry the same SHA.
+
+If current SlipTrace `main` later differs:
+
+- existing workflow: continue with the pinned SHA unless the user explicitly
+  starts/migrates the run;
+- new workflow: pin the new current SHA;
+- never silently combine rule files from two revisions.
+
+See `docs/FOOTBALL_C_AUTHORITY.md`.
 
 ## Stage separation
 
-Each stage is an isolated Work task.
+Each stage uses a dedicated Work task and receives:
 
-A downstream task receives:
-1. the upstream immutable receipt;
-2. cited factual evidence needed to verify it;
-3. the current stage launcher.
+1. the previous structured receipt;
+2. the factual evidence referenced by that receipt;
+3. the pinned SlipTrace authority files for the stage.
 
-It does not receive upstream private reasoning or conversational history.
+It does not need another stage's private chain-of-thought.
 
-## FOM research dimensions
+This isolates procedural drift while preserving one rulebook.
 
-FOM v1 intentionally does not clone Football C. Rank research is organized
-around these independent dimensions:
+## Consistency priorities
 
-- scoring creation;
-- concession vulnerability;
-- game-state elasticity;
-- tail sustainability into goals 3/4/5;
-- two-sided route independence;
-- tournament incentive;
-- lineup robustness;
-- evidence confidence and transferability.
+FOM checks, in order:
 
-## Output states
+1. **Authority consistency** — same Football C revision across the run.
+2. **Evidence consistency** — required facts are gathered symmetrically and
+   frozen once.
+3. **Rule consistency** — Football C compiler/ranking/decision rules are applied
+   exactly as written.
+4. **Cross-stage consistency** — rank certificates, XI upgrades, WAIT and live
+   handling do not contradict earlier frozen state without named new evidence.
+5. **Calibration** — only after the first four are clean should repeated misses
+   be treated as possible Football C rule gaps.
 
-Rank uses `FOM_FOCUS`, `FOM_WATCH`, and `FOM_DROP`.
-There is no quota or fixed board-size cap.
+## Output ownership
 
-Decision stages use `ACT`, `WAIT`, and `PASS`.
-WAIT must state a reachable condition.
+FOM wrapper receipts may record:
 
-## Comparison
+- native V4 intake status;
+- C board state: FOCUS / WATCH / PASS;
+- C funded certificate: G3 / G4 / G5 / G6 / NONE;
+- C robustness;
+- C supported burden;
+- C ACT / WAIT / PASS;
+- operational FOLLOW / RESERVE / STOP;
+- consistency checks.
 
-FOM versus Football C comparison is a post-freeze audit operation only.
-Disagreement is evidence, not a voting or consensus mechanism.
+Those values are Football C outputs. FOM does not reinterpret them into a
+second state system.
+
+## Change control
+
+Deep audit can recommend a prospective SlipTrace change.
+
+A recommendation must first prove that the issue is not:
+
+- stale/mixed authority;
+- missing evidence;
+- inconsistent evidence symmetry;
+- stage handoff drift;
+- incorrect application of an existing C rule;
+- ordinary variance.
+
+FOM never silently edits Football C rules.
