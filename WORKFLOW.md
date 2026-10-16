@@ -33,6 +33,12 @@ repeated anomaly / explicit request only
 /audit deep
 ```
 
+## Stage launchers
+
+- `/sweep`: `launchers/SWEEP.md`
+
+Use the stage launcher in a dedicated Work task. Later launchers should follow the same receipt-only handoff boundary.
+
 ## Commands
 
 - `/sweep <window>`
