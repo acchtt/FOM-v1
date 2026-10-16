@@ -8,7 +8,7 @@ The Work models are execution roles around one Football C authority.
 
 | Stage | Model | Effort | Role |
 |---|---|---:|---|
-| Intake | GPT-6 Luna | Medium | validate existing V4 handoff; no acquisition |
+| Sweep/intake | GPT-6 Luna | Medium | source acquisition checks and V4 contract execution |
 | Rank | GPT-6.1 Sol | Medium | complete Football C evidence and rule application |
 | XI/live | GPT-6.1 Sol | Medium | current Football C assessment/decision policy |
 | Reconcile | GPT-6 Luna | Medium | structured outcome/process classification |
@@ -16,7 +16,8 @@ The Work models are execution roles around one Football C authority.
 
 ## Escalation policy
 
-- Intake stays on Luna and fails closed on an invalid/missing V4 bundle.
+- Sweep stays on Luna; malformed acquisition should fail closed rather than
+  escalating model capability.
 - Rank moves 6.1 Sol Medium → High only for a genuinely ambiguous C evidence
   case, not because the slate is large.
 - XI/live uses High only when material current evidence conflicts.
@@ -26,19 +27,24 @@ The Work models are execution roles around one Football C authority.
 
 ## Important distinction
 
-Changing the Work model does not change the football model, and FOM does not
-duplicate the production sweep.
+Changing the Work model does **not** change the football model.
 
 ```text
-SlipTrace /sweep
-      ↓
-Luna intake check ┐
-Sol rank/XI       ├──> same pinned Football C rules
-Astra audit       ┘
+Luna worker ┐
+Sol worker  ├──> same pinned Football C rules
+Astra audit ┘
 ```
+
+Astra cannot overrule C with its own football opinion. It can identify that C
+was applied inconsistently or propose a prospective C rule change.
 
 ## Cost discipline
 
-Load only the current stage launcher, incoming consistency receipt, exact pinned
-SlipTrace authority files and referenced evidence. Do not repeat fixture
-discovery inside FOM.
+Load only:
+
+- the current stage launcher;
+- the incoming FOM consistency receipt;
+- the exact pinned SlipTrace authority files;
+- evidence referenced by the receipt.
+
+Do not load the entire Football v2 history for routine work.
