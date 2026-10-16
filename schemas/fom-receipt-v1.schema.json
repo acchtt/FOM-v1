@@ -1,0 +1,626 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FOM v1 receipt contracts",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "run_id",
+        "created_at",
+        "stage",
+        "evidence_refs",
+        "requested_window",
+        "research_queue",
+        "pending",
+        "excluded"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "fom-sweep-v1"
+        },
+        "run_id": {
+          "type": "string",
+          "pattern": "^FOM-"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "stage": {
+          "const": "sweep"
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "requested_window": {
+          "type": "object",
+          "required": [
+            "start",
+            "end"
+          ],
+          "properties": {
+            "start": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "end": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "additionalProperties": false
+        },
+        "research_queue": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "match_id",
+              "home_team",
+              "away_team",
+              "competition",
+              "kickoff",
+              "evidence_refs"
+            ],
+            "properties": {
+              "match_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "home_team": {
+                "type": "string",
+                "minLength": 1
+              },
+              "away_team": {
+                "type": "string",
+                "minLength": 1
+              },
+              "competition": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kickoff": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "evidence_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "priority": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "pending": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "match_id",
+              "reason"
+            ],
+            "properties": {
+              "match_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "excluded": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "match_id",
+              "reason"
+            ],
+            "properties": {
+              "match_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "run_id",
+        "created_at",
+        "stage",
+        "evidence_refs",
+        "sweep_receipt_ref",
+        "assessed",
+        "focus_board",
+        "watch",
+        "drop"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "fom-rank-v1"
+        },
+        "run_id": {
+          "type": "string",
+          "pattern": "^FOM-"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "stage": {
+          "const": "rank"
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "sweep_receipt_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "assessed": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "match_id",
+              "state",
+              "basis",
+              "evidence_refs"
+            ],
+            "properties": {
+              "match_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "state": {
+                "enum": [
+                  "FOM_FOCUS",
+                  "FOM_WATCH",
+                  "FOM_DROP"
+                ]
+              },
+              "basis": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidence_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "supported_line": {
+                "type": "number",
+                "minimum": 0
+              },
+              "supported_line_basis": {
+                "type": "string",
+                "minLength": 1
+              },
+              "failure_state": {
+                "type": "string",
+                "minLength": 1
+              },
+              "tail_needed": {
+                "type": "string",
+                "minLength": 1
+              },
+              "confidence": {
+                "enum": [
+                  "low",
+                  "medium",
+                  "high"
+                ]
+              }
+            },
+            "dependentRequired": {
+              "supported_line": [
+                "supported_line_basis",
+                "failure_state",
+                "tail_needed",
+                "confidence"
+              ]
+            },
+            "additionalProperties": false
+          }
+        },
+        "focus_board": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "watch": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "drop": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "run_id",
+        "created_at",
+        "stage",
+        "evidence_refs",
+        "match_id",
+        "rank_receipt_ref",
+        "context",
+        "decision",
+        "football_thesis_state",
+        "basis",
+        "invalidation_conditions"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "fom-decision-v1"
+        },
+        "run_id": {
+          "type": "string",
+          "pattern": "^FOM-"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "stage": {
+          "const": "decision"
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "match_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rank_receipt_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "context": {
+          "type": "object",
+          "required": [
+            "phase"
+          ],
+          "properties": {
+            "phase": {
+              "enum": [
+                "prematch",
+                "live"
+              ]
+            },
+            "minute": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "home_score": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "away_score": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "market_screenshot_ref": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "decision": {
+          "enum": [
+            "ACT",
+            "WAIT",
+            "PASS"
+          ]
+        },
+        "football_thesis_state": {
+          "type": "string",
+          "minLength": 1
+        },
+        "basis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "invalidation_conditions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "wait_condition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reachability_basis": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "decision": {
+                "const": "WAIT"
+              }
+            },
+            "required": [
+              "decision"
+            ]
+          },
+          "then": {
+            "required": [
+              "wait_condition",
+              "reachability_basis"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "context": {
+                "properties": {
+                  "phase": {
+                    "const": "live"
+                  }
+                },
+                "required": [
+                  "phase"
+                ]
+              }
+            },
+            "required": [
+              "context"
+            ]
+          },
+          "then": {
+            "properties": {
+              "context": {
+                "required": [
+                  "phase",
+                  "minute",
+                  "home_score",
+                  "away_score"
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "run_id",
+        "created_at",
+        "stage",
+        "evidence_refs",
+        "match_id",
+        "frozen_receipt_ref",
+        "actual_result",
+        "primary_miss_class",
+        "secondary_factors",
+        "hindsight_guard_passed"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "fom-reconciliation-v1"
+        },
+        "run_id": {
+          "type": "string",
+          "pattern": "^FOM-"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "stage": {
+          "const": "reconciliation"
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "match_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "frozen_receipt_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "actual_result": {
+          "type": "object",
+          "required": [
+            "home_score",
+            "away_score"
+          ],
+          "properties": {
+            "home_score": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "away_score": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "additionalProperties": false
+        },
+        "primary_miss_class": {
+          "enum": [
+            "INTAKE_MISS",
+            "RANK_ADMISSION_MISS",
+            "ROUTE_ASSESSMENT_MISS",
+            "BURDEN_TAIL_MISS",
+            "GAME_STATE_MISS",
+            "TOURNAMENT_INCENTIVE_MISS",
+            "XI_CURRENT_INFO_MISS",
+            "WAIT_REACHABILITY_MISS",
+            "NORMAL_VARIANCE"
+          ]
+        },
+        "secondary_factors": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "hindsight_guard_passed": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "run_id",
+        "created_at",
+        "stage",
+        "evidence_refs",
+        "trigger",
+        "reconciliation_refs",
+        "proposed_rule",
+        "affected_stage",
+        "supporting_receipt_ids",
+        "regression_cases",
+        "prospective_knowability_basis",
+        "advisory_only"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "fom-audit-v1"
+        },
+        "run_id": {
+          "type": "string",
+          "pattern": "^FOM-"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "stage": {
+          "const": "audit"
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "trigger": {
+          "enum": [
+            "explicit_request",
+            "repeated_structural_failure"
+          ]
+        },
+        "reconciliation_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "proposed_rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "affected_stage": {
+          "enum": [
+            "sweep",
+            "rank",
+            "decision",
+            "reconciliation"
+          ]
+        },
+        "supporting_receipt_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "regression_cases": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "prospective_knowability_basis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "advisory_only": {
+          "const": true
+        }
+      },
+      "additionalProperties": false
+    }
+  ]
+}
