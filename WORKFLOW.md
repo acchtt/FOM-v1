@@ -1,6 +1,7 @@
-# FOM v1 — Work workflow
+# FOM v1 — Football C Work workflow
 
-FOM v1 runs only in ChatGPT Work and remains separate from Football C.
+FOM v1 runs in ChatGPT Work as a consistency/orchestration layer around the
+single active Football C model.
 
 ## Dedicated Work stages
 
@@ -10,46 +11,54 @@ FOM v1 runs only in ChatGPT Work and remains separate from Football C.
 4. **FOM — RECONCILE** — GPT-6 Luna / Medium
 5. **FOM — DEEP AUDIT** — GPT-6 Astra / Low, only when triggered
 
-Create a separate Work task for each stage and use the model/effort above.
-Do not paste one stage's reasoning into another stage. Transfer only the
-structured receipt plus the factual evidence referenced by that receipt.
+Each task loads the **same pinned SlipTrace authority revision** for that
+workflow. Stage handoffs use structured receipts, not private reasoning.
 
 ## Normal sequence
 
 ```text
-neutral fixture evidence
+resolve latest SlipTrace main
         ↓
-/sweep
-        ↓ sweep_receipt.json
-/rank
-        ↓ rank_receipt.json
-/xi or /live
-        ↓ decision_receipt.json
-/reconcile
-        ↓ reconciliation_receipt.json
+pin Football C authority SHA
+        ↓
+/sweep  — apply V4 intake contract
+        ↓ fom-c-sweep-v1
+/rank   — apply Football C rank rules
+        ↓ fom-c-rank-v1
+/xi or /live — apply Football C decision rules
+        ↓ fom-c-decision-v1
+/reconcile — check execution/model outcome
+        ↓ fom-c-reconciliation-v1
 
-repeated anomaly / explicit request only
+repeated inconsistency / explicit request only
         ↓
-/audit deep
+/audit deep — consistency-first audit
 ```
 
 ## Stage launchers
 
 - `/sweep`: `launchers/SWEEP.md`
-
-Use the stage launcher in a dedicated Work task. Later launchers should follow the same receipt-only handoff boundary.
+- `/rank`: `launchers/RANK.md`
+- `/xi`, `/live`: `launchers/XI_LIVE.md`
+- `/reconcile`: `launchers/RECONCILE.md`
+- `/audit deep`: `launchers/DEEP_AUDIT.md`
 
 ## Commands
 
 - `/sweep <window>`
 - `/rank <sweep receipt>`
 - `/xi <rank receipt + screenshots/current evidence>`
-- `/live <decision/rank receipt + score/minute/current evidence>`
+- `/live <rank/decision receipt + current score/minute/evidence>`
 - `/reconcile <frozen receipts + result>`
 - `/audit deep <reconciliation set>`
 
-## Non-negotiable isolation
+## Non-negotiable model boundary
 
-FOM may not read Football C's prediction, rank, supported burden, decision,
-or outcome interpretation before FOM freezes the corresponding output.
-Comparison with Football C happens only after both sides are frozen.
+FOM may improve how Football C evidence is gathered, checked, handed off and
+audited. FOM may not become a competing football prediction authority.
+
+There are no `FOM_FOCUS`, `FOM_WATCH`, `FOM_DROP`, alternative burden
+compiler, alternate WAIT rule or model-voting layer.
+
+Every prediction-state field in FOM receipts is explicitly a **Football C**
+state.
