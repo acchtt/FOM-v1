@@ -1,27 +1,37 @@
-# /sweep — Football C consistency stage
+# /intake — Football C consistency stage
 
 Model: GPT-6 Luna, Medium.
 
-Authority is the pinned SlipTrace
+This stage does **not** perform a sweep.
+
+Authority for validating the supplied production bundle is the pinned SlipTrace
 `models/football/stages_v4/SWEEP.md`.
 
-FOM does not define a second intake model.
+## Input
+
+An existing canonical production V4 bundle, normally containing:
+
+- native `V4_SWEEP_READY` receipt;
+- unchanged source snapshot;
+- rank-handoff manifest when available.
 
 ## Responsibilities
 
-- resolve and pin current Football C authority for a new workflow;
-- apply the native V4 acquisition/intake contract exactly;
-- preserve current user exclusions and protected exceptions from SlipTrace;
-- record native V4 output references;
-- detect missing evidence or procedure drift;
-- emit no football prediction.
+- verify the bundle is present and canonical;
+- verify native V4 status/integrity metadata;
+- pin the Football C/SlipTrace authority revision;
+- preserve the frozen eligible/pending/excluded IDs exactly;
+- emit a small FOM consistency wrapper for downstream rank.
 
 ## Forbidden
 
-- alternate FOM research/admission rules;
-- fixed board cap;
-- odds or lineup blockers not present in current V4;
-- FOM prediction states;
-- retrospective fixture admission.
+- fixture discovery;
+- provider date-surface crawling;
+- adding/removing fixtures from the frozen sweep cohort;
+- reconstructing source.json;
+- creating a replacement V4 receipt;
+- football prediction.
 
-Output `fom-c-sweep-v1`.
+If validation fails, output `INTAKE_BLOCKED` and stop.
+
+Output `fom-c-intake-v1`.
