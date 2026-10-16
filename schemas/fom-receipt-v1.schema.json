@@ -14,7 +14,6 @@
         "evidence_refs",
         "football_c_authority",
         "requested_window",
-        "native_receipt_ref",
         "native_receipt_status",
         "eligible_match_ids",
         "pending_match_ids",
@@ -152,9 +151,52 @@
         },
         "route_owner": {
           "const": "FOM_WORK"
+        },
+        "blocker_code": {
+          "enum": [
+            "SOURCE_SURFACE_BLOCKED",
+            "SOURCE_COMPLETENESS_FAILED",
+            "NATIVE_EXECUTION_UNAVAILABLE"
+          ]
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "native_receipt_status": {
+                "const": "V4_SWEEP_READY"
+              }
+            },
+            "required": [
+              "native_receipt_status"
+            ]
+          },
+          "then": {
+            "required": [
+              "native_receipt_ref"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "native_receipt_status": {
+                "const": "BLOCKED"
+              }
+            },
+            "required": [
+              "native_receipt_status"
+            ]
+          },
+          "then": {
+            "required": [
+              "blocker_code"
+            ]
+          }
+        }
+      ]
     },
     {
       "type": "object",
