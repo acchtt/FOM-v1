@@ -2,43 +2,45 @@
 
 FOM uses ChatGPT Work only. There is no OpenAI API dependency.
 
-The Work models are execution roles around one Football C authority.
+The Work models are stage operators for the same Football C model.
 
 ## Default routing
 
 | Stage | Model | Effort | Role |
 |---|---|---:|---|
-| Intake | GPT-6 Luna | Medium | validate existing V4 handoff; no acquisition |
-| Rank | GPT-6.1 Sol | Medium | complete Football C evidence and rule application |
-| XI/live | GPT-6.1 Sol | Medium | current Football C assessment/decision policy |
-| Reconcile | GPT-6 Luna | Medium | structured outcome/process classification |
-| Deep audit | GPT-6 Astra | Low | independent consistency and rule-gap audit |
-
-## Escalation policy
-
-- Intake stays on Luna and fails closed on an invalid/missing V4 bundle.
-- Rank moves 6.1 Sol Medium → High only for a genuinely ambiguous C evidence
-  case, not because the slate is large.
-- XI/live uses High only when material current evidence conflicts.
-- Reconcile normally stays on Luna.
-- Astra is reserved for `/audit deep`, repeated structural failures, or an
-  explicit user request.
-
-## Important distinction
-
-Changing the Work model does not change the football model, and FOM does not
-duplicate the production sweep.
-
-```text
-SlipTrace /sweep
-      ↓
-Luna intake check ┐
-Sol rank/XI       ├──> same pinned Football C rules
-Astra audit       ┘
-```
+| Sweep | GPT-6 Luna | Medium | broad source acquisition, V4 intake, filtering |
+| Rank | GPT-6.1 Sol | Medium | full C evidence research and C ranking |
+| XI | GPT-6.1 Sol | Medium | C prematch reassessment and price policy |
+| Live | GPT-6.1 Sol | Medium | C current-state reassessment |
+| Reconcile | GPT-6 Luna | Medium | structured result/process comparison |
+| Deep audit | GPT-6 Astra | Low | repeated consistency/rule-gap diagnosis |
 
 ## Cost discipline
 
-Load only the current stage launcher, incoming consistency receipt, exact pinned
-SlipTrace authority files and referenced evidence. Do not repeat fixture
-discovery inside FOM.
+- Sweep stays on Luna; split work rather than escalating the whole slate.
+- Rank uses 6.1 Sol Medium by default; High only for a genuinely ambiguous
+  individual case.
+- XI/live uses Medium by default; High only for conflicting material evidence.
+- Reconcile stays on Luna for routine classification.
+- Astra is exceptional and audit-only.
+
+## Important distinction
+
+```text
+Luna / Sol / Astra = Work operators
+Football C          = football model
+FOM_WORK             = execution route
+```
+
+Changing the Work model does not change the football model.
+
+## Context discipline
+
+Each stage loads only:
+
+- its launcher;
+- the upstream FOM receipt;
+- referenced factual evidence;
+- pinned Football C authority files.
+
+Do not load legacy route stage outputs into FOM.

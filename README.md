@@ -1,38 +1,53 @@
 # FOM v1
 
-FOM v1 is the **Football C consistency and Work orchestration layer**.
+FOM v1 is the **ChatGPT Work execution route for Football C**.
 
-It is not a second football model. Football C remains the only prediction
-authority. FOM exists to make Football C execution more consistent across
-/rank, /xi, /live and /audit while using cost-effective ChatGPT Work models for
-different operational jobs.
+It is not a second football model and it is not a checker layered on top of the
+existing SlipTrace conversation workflow. It is a complete alternative route
+that executes the same Football C model through isolated Work stages.
 
-## Core boundary
+## Two routes, one model
 
-- **SlipTrace `/sweep` is the sole fixture-acquisition authority.**
-- FOM never performs a second fixture crawl or rebuilds a V4 sweep.
-- FOM begins from an existing canonical `V4_SWEEP_READY` bundle.
-- **Football C is the only football model.**
-- FOM must apply the current Football C rulebook from `acchtt/SlipTrace`.
-- FOM must not invent alternative model states, burden rules or decision rules.
-- A workflow pins one SlipTrace commit SHA and keeps that authority revision
-  unchanged across downstream stages.
-- If SlipTrace changes mid-run, FOM reports `AUTHORITY_CHANGED` instead of
-  silently mixing rule versions.
+```text
+LEGACY_SLIPTRACE route
+/sweep → /rank → /xi → /live → /audit
+                 │
+                 └── Football C
+
+FOM_WORK route
+/sweep → /rank → /xi → /live → /reconcile → /audit deep
+                 │
+                 └── Football C
+```
+
+A workflow is owned by exactly one route. Stage outputs from the two routes must
+not be mixed inside the same workflow.
+
+## Core rules
+
+- **Football C is the sole football prediction authority.**
+- FOM loads Football C rules from a pinned `acchtt/SlipTrace` revision.
+- FOM executes its own Work-stage `/sweep → /rank → /xi → /live` chain.
+- FOM does not consume legacy SlipTrace sweep/rank/decision outputs for the same
+  workflow.
+- Every FOM receipt carries `route_owner = FOM_WORK`.
+- FOM has no alternate burden compiler, ranking formula, or ACT/WAIT/PASS policy.
+- FOM does not write SlipTrace production state during evaluation unless the
+  user explicitly promotes the route.
 - No OpenAI API or third-party orchestrator is required.
 
 ## Work model routing
 
-| Stage | Work model | Default effort | Role |
-|---|---|---:|---|
-| Intake / handoff check | GPT-6 Luna | Medium | validate existing production V4 bundle only |
-| Rank / C research | GPT-6.1 Sol | Medium | prepare and apply Football C research consistently |
-| XI / live | GPT-6.1 Sol | Medium | apply current Football C decision policy |
-| Reconcile | GPT-6 Luna | Medium | classify process/model misses mechanically |
-| Deep audit | GPT-6 Astra | Low | independent consistency/rule-gap review |
+| FOM stage | Work model | Default effort |
+|---|---|---:|
+| /sweep | GPT-6 Luna | Medium |
+| /rank | GPT-6.1 Sol | Medium |
+| /xi | GPT-6.1 Sol | Medium |
+| /live | GPT-6.1 Sol | Medium |
+| /reconcile | GPT-6 Luna | Medium |
+| /audit deep | GPT-6 Astra | Low |
 
-Different Work models are workers around **one Football C rulebook**, not
-different prediction models.
+Different Work models are operators around the same Football C rulebook.
 
-Start with `WORKFLOW.md`, `docs/FOOTBALL_C_AUTHORITY.md`, and the stage
-launchers.
+Read `WORKFLOW.md`, `docs/ROUTE_OWNERSHIP.md`,
+`docs/FOOTBALL_C_AUTHORITY.md`, and the stage launchers before operating FOM.

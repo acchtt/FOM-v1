@@ -10,7 +10,7 @@ import sys
 SCHEMA = pathlib.Path(__file__).resolve().parents[1] / "schemas" / "fom-receipt-v1.schema.json"
 
 STAGE_AUTHORITY_PATHS = {
-    "intake": "models/football/stages_v4/SWEEP.md",
+    "sweep": "models/football/stages_v4/SWEEP.md",
     "rank": "models/football/stages_v4/RANK.md",
     "reconciliation": "models/football/prompts/04_WORK_POST_SLATE_AUDIT.md",
     "audit": "models/football/prompts/04_WORK_POST_SLATE_AUDIT.md",
@@ -137,7 +137,7 @@ def validate(receipt, schema):
 
     version = receipt.get("schema_version")
 
-    if version == "fom-c-intake-v1":
+    if version == "fom-c-sweep-v1":
         window = receipt.get("requested_window", {})
         if isinstance(window, dict):
             try:
@@ -157,7 +157,7 @@ def validate(receipt, schema):
             flattened = [item for bucket in buckets for item in bucket]
             if len(flattened) != len(set(flattened)):
                 errors.append(
-                    "$: intake match IDs must not appear in more than one bucket"
+                    "$: sweep match IDs must not appear in more than one bucket"
                 )
 
     if version == "fom-c-rank-v1":
@@ -217,6 +217,13 @@ def validate_bundle(receipts):
             by_workflow.setdefault(workflow_id, []).append(receipt)
 
     for workflow_id, group in by_workflow.items():
+        owners = {r.get("route_owner") for r in group}
+        owners.discard(None)
+        if owners != {"FOM_WORK"}:
+            errors.append(
+                f"{workflow_id}: every FOM receipt must use route_owner=FOM_WORK"
+            )
+
         shas = {
             r.get("football_c_authority", {}).get("commit_sha")
             for r in group
@@ -229,16 +236,17 @@ def validate_bundle(receipts):
             )
 
     ref_fields = {
-        "fom-c-rank-v1": "intake_receipt_ref",
-        "fom-c-decision-v1": "rank_receipt_ref",
-        "fom-c-reconciliation-v1": "frozen_receipt_ref",
+        "fom-c-rank-v1": ("sweep_receipt_ref", "fom-c-sweep-v1"),
+        "fom-c-decision-v1": ("rank_receipt_ref", "fom-c-rank-v1"),
+        "fom-c-reconciliation-v1": ("frozen_receipt_ref", None),
     }
     for receipt in receipts:
         if not isinstance(receipt, dict):
             continue
-        ref_field = ref_fields.get(receipt.get("schema_version"))
-        if not ref_field:
+        ref_spec = ref_fields.get(receipt.get("schema_version"))
+        if not ref_spec:
             continue
+        ref_field, expected_upstream_schema = ref_spec
         ref = receipt.get(ref_field)
         upstream = by_run_id.get(ref)
         if not upstream:
@@ -246,6 +254,18 @@ def validate_bundle(receipts):
         if upstream.get("workflow_id") != receipt.get("workflow_id"):
             errors.append(
                 f"{receipt.get('run_id')}: {ref_field} crosses workflow_id"
+            )
+        if upstream.get("route_owner") != "FOM_WORK":
+            errors.append(
+                f"{receipt.get('run_id')}: {ref_field} is not owned by FOM_WORK"
+            )
+        if (
+            expected_upstream_schema
+            and upstream.get("schema_version") != expected_upstream_schema
+        ):
+            errors.append(
+                f"{receipt.get('run_id')}: {ref_field} must reference "
+                f"{expected_upstream_schema}"
             )
         upstream_sha = upstream.get("football_c_authority", {}).get("commit_sha")
         current_sha = receipt.get("football_c_authority", {}).get("commit_sha")

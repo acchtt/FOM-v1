@@ -1,39 +1,24 @@
-# /xi and /live — Football C consistency stage
+# /xi and /live — FOM_WORK Football C decision
 
 Model: GPT-6.1 Sol, Medium.
 
-## Authority
-
-Use the same pinned SlipTrace SHA as the rank receipt.
-
-Prematch authority:
-`models/football/prompts/02_NORMAL_CHAT_XI_ODDS.md`
-
-Live authority:
-`models/football/prompts/03_NORMAL_CHAT_LIVE.md`
+Input must be a FOM_WORK rank/decision receipt from the same workflow.
 
 ## /xi
 
-Apply the current Football C policy exactly:
+Use the pinned Football C XI authority and apply C exactly:
 
-- complete football assessment without requiring odds;
-- use only a user screenshot when screenshot-only evidence is supplied;
-- do not search replacement odds;
-- enforce the frozen-certificate upgrade guard;
-- apply C WAIT reachability requirements;
-- preserve C price rules;
-- distinguish observed quote evaluation from executable action.
-
-Do not create a FOM-specific ACT/WAIT/PASS policy.
+- assess football without requiring odds;
+- user screenshot is the sole quote when supplied;
+- no replacement odds search;
+- frozen-certificate upgrade guard;
+- C WAIT reachability and price policy.
 
 ## /live
 
-Apply the current C live procedure to actual score/minute/material events.
+Use the pinned C live authority with current score/minute/material events.
+Do not recreate prematch action retrospectively.
 
-Do not recreate a prematch decision retrospectively and do not manufacture a
-live execution policy.
+Do not use legacy SlipTrace rank/XI/live outputs as upstream FOM state.
 
-## Output
-
-Freeze `fom-c-decision-v1` recording the actual C decision plus consistency
-checks and the pinned authority revision.
+Output `fom-c-decision-v1`.

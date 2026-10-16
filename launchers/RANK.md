@@ -1,50 +1,59 @@
 # FOM v1 — /rank Work launcher
 
 Model: **GPT-6.1 Sol**  
-Effort: **Medium**
+Effort: **Medium**  
+Route owner: **FOM_WORK**
 
 ## Invocation
 
 ```text
-/rank <fom-c-intake-v1 receipt>
+/rank <fom-c-sweep-v1 receipt>
 ```
+
+## Route gate
+
+Accept only a FOM sweep receipt with:
+
+- the same `workflow_id`;
+- `route_owner = FOM_WORK`;
+- a pinned Football C authority SHA.
+
+Do not substitute a legacy SlipTrace sweep receipt or legacy rank output.
 
 ## Authority gate
 
-Read `football_c_authority.commit_sha` from the intake receipt.
-
-At that exact SlipTrace SHA load:
+At the exact SHA from the FOM sweep receipt load:
 
 - `models/football/CURRENT_MODEL.md`;
 - `models/football/stages_v4/RANK.md`;
-- active Football C engine/rule files referenced by the authority.
+- active Football C engine/rule files referenced there.
 
-If current SlipTrace `main` differs, report `AUTHORITY_CHANGED` but do not
-silently switch this run.
+If current SlipTrace main differs, report `AUTHORITY_CHANGED` but do not
+silently switch this workflow.
 
-## Task
+## Execute Football C rank
 
-Execute/check the current Football C rank procedure exactly.
+Research the complete FOM sweep cohort and apply C exactly:
 
-Do not create an independent FOM score, state, supported line or ranking key.
+- fresh status/kickoff checks required by the pinned rank contract;
+- current football evidence;
+- tournament incentive;
+- C goal certificates and supported-burden compiler;
+- C transferability/comparable-context rules;
+- C ranking key;
+- C FOCUS/WATCH/PASS;
+- C-FOCUS-only official board;
+- no fixed numeric board cap;
+- FOLLOW/RESERVE/STOP only as the operational lane after C selection.
 
-Required consistency checks include:
-
-- original V4/source/status contract satisfied;
-- complete eligible cohort researched or explicitly accounted for;
-- price-blind C assessment;
-- C certificate compiler used exactly;
-- C ranking key used exactly;
-- official board contains every and only C-FOCUS row;
-- no numeric board cap;
-- FOLLOW/RESERVE/STOP treated as operational lane, not a second selector.
+Do not invent a FOM ranking formula or second model vote.
 
 ## Output
 
-Return `fom-c-rank-v1` wrapping the C result and the same pinned authority SHA.
+Return `fom-c-rank-v1` owned by the same FOM workflow.
 
-Validate before handoff:
+Validate:
 
 ```bash
-python tools/validate_receipt.py <intake.json> <rank.json>
+python tools/validate_receipt.py <fom-sweep.json> <fom-rank.json>
 ```

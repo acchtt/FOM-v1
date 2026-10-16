@@ -31,12 +31,9 @@ jobs:
           assert "FOM_DROP" not in text
           assert '"active_model"' in text and '"C"' in text
           assert "acchtt/SlipTrace" in text
-          assert "fom-c-sweep-v1" not in text
-          assert "fom-c-intake-v1" in text
-          assert '"no_fixture_discovery_performed"' in text
-          assert '"const": true' in text
-          forbidden = ["launchers/SWEEP.md", "stages/01_SWEEP.md"]
-          for path in forbidden:
-              assert not Path(path).exists(), f"retired duplicate FOM sweep returned: {path}"
-          print("PASS — FOM receipts enforce Football C-only authority and no duplicate sweep")
+          assert '"route_owner"' in text
+          assert '"FOM_WORK"' in text
+          assert "fom-c-sweep-v1" in text
+          assert "fom-c-rank-v1" in text
+          print("PASS — FOM receipts enforce FOM_WORK route + Football C authority")
           PY
