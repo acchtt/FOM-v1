@@ -4,7 +4,7 @@ Model: GPT-6.1 Sol, Medium.
 
 ## Authority
 
-Load from the **same SlipTrace commit SHA pinned by the sweep receipt**:
+Load from the **same SlipTrace commit SHA pinned by the intake receipt**:
 
 - `models/football/CURRENT_MODEL.md`
 - `models/football/stages_v4/RANK.md`
