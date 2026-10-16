@@ -1,17 +1,20 @@
 # FOM v1 — /reconcile Work launcher
 
 Model: **GPT-6 Luna**  
-Effort: **Medium**
+Effort: **Medium**  
+Route owner: **FOM_WORK**
 
-Use the workflow's pinned SlipTrace SHA and load
+Use only frozen FOM_WORK receipts from the same workflow.
+
+Load the pinned Football C audit authority:
 `models/football/prompts/04_WORK_POST_SLATE_AUDIT.md`.
 
-Compare frozen prospective C outputs with the result.
+Compare prospective FOM-route C outputs with actual results without rewriting
+history.
 
-Classify **consistency/process failures first**. Use `C_MODEL_MISS` only when
-the correct C authority, evidence contract and rule application were all
-consistent prospectively.
+Classify process/evidence/application drift before using `C_MODEL_MISS`.
 
-Never rewrite frozen C evidence after seeing the result.
+Do not use the legacy route's conclusion to rewrite the FOM diagnosis. A
+post-freeze cross-route comparison may be attached separately for analysis.
 
 Return `fom-c-reconciliation-v1`.
