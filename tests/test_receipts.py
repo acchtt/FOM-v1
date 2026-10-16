@@ -112,6 +112,14 @@ class ReceiptTests(unittest.TestCase):
         x["requested_window"]["end"] = NOW
         self.assertTrue(validate(x, SCHEMA))
 
+    def test_blocked_sweep_requires_named_blocker_not_fake_receipt(self):
+        x = sweep()
+        x["native_receipt_status"] = "BLOCKED"
+        x.pop("native_receipt_ref")
+        self.assertTrue(validate(x, SCHEMA))
+        x["blocker_code"] = "SOURCE_SURFACE_BLOCKED"
+        self.assertEqual(validate(x, SCHEMA), [])
+
     def test_sweep_buckets_are_disjoint(self):
         x = sweep()
         x["excluded_match_ids"] = ["m1"]
