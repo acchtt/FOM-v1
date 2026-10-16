@@ -1,30 +1,37 @@
 # FOM v1
 
-FOM v1 is a standalone experimental football-model workflow operated entirely
-through ChatGPT Work.
+FOM v1 is the **Football C consistency and Work orchestration layer**.
 
-It is intentionally isolated from SlipTrace / Football C production.
+It is not a second football model. Football C remains the only prediction
+authority. FOM exists to make Football C execution more consistent across
+/sweep, /rank, /xi, /live and /audit while using cost-effective ChatGPT Work
+models for different operational jobs.
 
 ## Core boundary
 
-- No imports from SlipTrace.
-- No reads of Football C rankings, burdens, FOCUS/WATCH/PASS states or decisions
-  before FOM freezes its own output.
-- No writes to Football C production state.
-- No API or third-party orchestrator is required.
-- Stage-to-stage communication uses structured receipts only.
+- **Football C is the only football model.**
+- FOM must apply the current Football C rulebook from `acchtt/SlipTrace`.
+- FOM must not invent alternative model states, burden rules or decision rules.
+- A workflow pins one SlipTrace commit SHA and keeps that authority revision
+  unchanged across all downstream stages.
+- If SlipTrace changes mid-run, FOM reports `AUTHORITY_CHANGED` instead of
+  silently mixing rule versions.
+- FOM does not write production state unless the user explicitly authorizes a
+  production action.
+- No OpenAI API or third-party orchestrator is required.
 
 ## Work model routing
 
-| Stage | Work model | Default effort |
-|---|---|---|
-| Sweep / intake | GPT-6 Luna | Medium |
-| Rank / football research | GPT-6.1 Sol | Medium |
-| XI / live decision | GPT-6.1 Sol | Medium |
-| Routine result reconciliation | GPT-6 Luna | Medium |
-| Deep audit / recalibration | GPT-6 Astra | Low |
+| Stage | Work model | Default effort | Role |
+|---|---|---:|---|
+| Sweep / intake | GPT-6 Luna | Medium | execute/check V4 intake contract |
+| Rank / C research | GPT-6.1 Sol | Medium | prepare and apply Football C research consistently |
+| XI / live | GPT-6.1 Sol | Medium | apply current Football C decision policy |
+| Reconcile | GPT-6 Luna | Medium | classify process/model misses mechanically |
+| Deep audit | GPT-6 Astra | Low | independent consistency/rule-gap review |
 
-Escalate effort only when the stage procedure explicitly requires it.
+Different Work models are workers around **one Football C rulebook**, not
+different prediction models.
 
-See `docs/ARCHITECTURE.md` and `docs/MODEL_ROUTING.md` after the initial
-scaffold is merged.
+Start with `WORKFLOW.md`, `docs/FOOTBALL_C_AUTHORITY.md`, and the stage
+launchers.
