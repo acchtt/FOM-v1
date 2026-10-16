@@ -11,7 +11,7 @@ receipts.
 Run:
 
 ```bash
-python tools/validate_receipt.py path/to/intake.json path/to/rank.json
+python tools/validate_receipt.py path/to/sweep.json path/to/rank.json
 python -m unittest discover -s tests -v
 ```
 
@@ -26,8 +26,8 @@ The validator checks:
 - there is no FOM-specific prediction state;
 - WAIT has a reachable condition and basis;
 - live decisions contain score/minute;
-- the production sweep window carried by intake is valid;
-- intake certifies that no fixture discovery was performed; downstream references do not cross workflows when both receipts are supplied.
+- sweep windows are valid;
+- downstream references do not cross workflows when both receipts are supplied.
 
 The validator cannot prove that web evidence is true, that the referenced
 SlipTrace commit exists, or that native Football C Python execution actually
