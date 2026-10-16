@@ -1,46 +1,64 @@
-# FOM Football C consistency receipts
+# FOM_WORK Football C receipt contracts
 
-FOM receipts do not define a second model. They wrap Football C/V4 execution so
-cross-stage consistency can be validated.
+FOM receipts represent a complete alternative Work execution route for Football
+C. They are not wrappers around legacy SlipTrace stage outputs.
 
-Every receipt includes:
+Every FOM receipt includes:
 
 ```json
 {
   "workflow_id": "FOMC-...",
   "run_id": "FOMC-...",
+  "route_owner": "FOM_WORK",
   "football_c_authority": {
     "repository": "acchtt/SlipTrace",
     "commit_sha": "<40 hex>",
     "active_model": "C",
     "current_model_path": "models/football/CURRENT_MODEL.md",
-    "stage_authority_path": "<stage-specific path>"
+    "stage_authority_path": "<stage authority>"
   }
 }
 ```
 
-All receipts with the same `workflow_id` must use the same
-`football_c_authority.commit_sha`.
-
 ## fom-c-sweep-v1
-Wraps native V4 intake. It records the native receipt reference/status and
-eligible/pending/excluded IDs. It contains no prediction.
+
+Created by the FOM Work sweep. It owns the workflow and freezes
+`route_owner=FOM_WORK`.
+
+It records the FOM-acquired window/cohort/provenance and emits no prediction.
 
 ## fom-c-rank-v1
-Wraps the actual Football C rank result. Assessed rows use only C states:
+
+Consumes only the matching FOM sweep receipt.
+
+Assessed rows use Football C states only:
 FOCUS, WATCH, PASS.
 
-`official_board` must contain exactly all assessed C-FOCUS match IDs. There is
-no numeric cap.
+`official_board` contains exactly all C-FOCUS IDs. No numeric cap.
 
 ## fom-c-decision-v1
-Wraps the actual Football C /xi or /live decision: ACT, WAIT, PASS.
-WAIT requires a reachable condition and basis.
+
+Consumes only the matching FOM rank receipt and records the actual C
+ACT/WAIT/PASS decision.
 
 ## fom-c-reconciliation-v1
-Classifies whether a miss came from C application drift, evidence/process
-failure, genuine C model miss, or normal variance.
+
+Uses frozen FOM route receipts and outcomes to separate process/application
+drift from genuine C model miss or normal variance.
 
 ## fom-c-audit-v1
-Advisory deep-audit output. It cannot create an alternate prediction and cannot
-mutate SlipTrace automatically.
+
+Deep audit is advisory. Cross-route comparison is allowed only after independent
+freeze and cannot become upstream FOM evidence.
+
+## Route invariant
+
+All receipts in one FOM workflow must have:
+
+```text
+route_owner = FOM_WORK
+same workflow_id
+same pinned Football C commit SHA
+```
+
+No legacy SlipTrace stage output may be spliced into the chain.
