@@ -8,6 +8,7 @@
         "schema_version",
         "workflow_id",
         "run_id",
+        "route_owner",
         "created_at",
         "stage",
         "evidence_refs",
@@ -148,6 +149,9 @@
             }
           },
           "additionalProperties": false
+        },
+        "route_owner": {
+          "const": "FOM_WORK"
         }
       },
       "additionalProperties": false
@@ -158,6 +162,7 @@
         "schema_version",
         "workflow_id",
         "run_id",
+        "route_owner",
         "created_at",
         "stage",
         "evidence_refs",
@@ -328,6 +333,9 @@
             }
           },
           "additionalProperties": false
+        },
+        "route_owner": {
+          "const": "FOM_WORK"
         }
       },
       "additionalProperties": false
@@ -338,6 +346,7 @@
         "schema_version",
         "workflow_id",
         "run_id",
+        "route_owner",
         "created_at",
         "stage",
         "evidence_refs",
@@ -524,6 +533,9 @@
             }
           },
           "additionalProperties": false
+        },
+        "route_owner": {
+          "const": "FOM_WORK"
         }
       },
       "additionalProperties": false,
@@ -585,6 +597,7 @@
         "schema_version",
         "workflow_id",
         "run_id",
+        "route_owner",
         "created_at",
         "stage",
         "evidence_refs",
@@ -705,6 +718,9 @@
         },
         "prospective_evidence_only": {
           "type": "boolean"
+        },
+        "route_owner": {
+          "const": "FOM_WORK"
         }
       },
       "additionalProperties": false
@@ -715,6 +731,7 @@
         "schema_version",
         "workflow_id",
         "run_id",
+        "route_owner",
         "created_at",
         "stage",
         "evidence_refs",
@@ -846,6 +863,9 @@
         },
         "advisory_only": {
           "const": true
+        },
+        "route_owner": {
+          "const": "FOM_WORK"
         }
       },
       "additionalProperties": false
