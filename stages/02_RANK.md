@@ -1,43 +1,44 @@
-# /rank — FOM v1
+# /rank — Football C consistency stage
 
 Model: GPT-6.1 Sol, Medium.
 
-## Input
+## Authority
 
-One immutable `fom-sweep-v1` receipt plus its factual evidence.
-Do not read Football C predictions or decisions.
+Load from the **same SlipTrace commit SHA pinned by the sweep receipt**:
 
-## Research
+- `models/football/CURRENT_MODEL.md`
+- `models/football/stages_v4/RANK.md`
+- the active Football C engine/rule files referenced by that authority.
 
-Assess every researchable fixture independently across:
+If current SlipTrace main differs, report `AUTHORITY_CHANGED`. Do not silently
+switch this workflow to the new revision.
 
-1. scoring creation;
-2. concession vulnerability;
-3. game-state elasticity;
-4. tail sustainability for goals 3/4/5;
-5. two-sided route independence;
-6. tournament incentive;
-7. lineup robustness;
-8. evidence transferability/confidence.
+## Responsibilities
 
-Same-context current mechanisms outrank generic high-scoring history.
+Follow Football C rank rules exactly:
 
-## Admission
+- native V4 source replay and status requirements;
+- full eligible cohort research;
+- price-blind Football C assessment;
+- C certificate compiler and transferability rules;
+- C ranking order;
+- C-FOCUS-only official board admission;
+- no fixed numeric board cap;
+- operational FOLLOW/RESERVE/STOP only after C selection.
 
-Freeze one state per researched fixture:
-- FOM_FOCUS
-- FOM_WATCH
-- FOM_DROP
-
-There is no fixed count cap.
-
-## Burden
-
-If a supported goal burden is stated, include supported_line,
-supported_line_basis, failure_state, tail_needed and confidence.
-Goal 3 never automatically certifies goal 4.
+FOM does not invent a second rank score or state.
 
 ## Output
 
-Freeze `fom-rank-v1` containing the full researched cohort, ordered FOCUS
-board, WATCH rows, DROP rows and evidence references.
+Freeze `fom-c-rank-v1` as a consistency wrapper around the actual C result.
+
+Every assessed row uses only:
+
+- C `FOCUS`, `WATCH`, or `PASS`;
+- C funded certificate;
+- C robustness;
+- C supported burden when present;
+- C operational lane when present.
+
+The wrapper must prove that the official board contains exactly all C-FOCUS
+rows and that the same pinned authority revision was used.
