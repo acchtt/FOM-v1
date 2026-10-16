@@ -10,7 +10,7 @@ import sys
 SCHEMA = pathlib.Path(__file__).resolve().parents[1] / "schemas" / "fom-receipt-v1.schema.json"
 
 STAGE_AUTHORITY_PATHS = {
-    "sweep": "models/football/stages_v4/SWEEP.md",
+    "intake": "models/football/stages_v4/SWEEP.md",
     "rank": "models/football/stages_v4/RANK.md",
     "reconciliation": "models/football/prompts/04_WORK_POST_SLATE_AUDIT.md",
     "audit": "models/football/prompts/04_WORK_POST_SLATE_AUDIT.md",
@@ -137,7 +137,7 @@ def validate(receipt, schema):
 
     version = receipt.get("schema_version")
 
-    if version == "fom-c-sweep-v1":
+    if version == "fom-c-intake-v1":
         window = receipt.get("requested_window", {})
         if isinstance(window, dict):
             try:
@@ -157,7 +157,7 @@ def validate(receipt, schema):
             flattened = [item for bucket in buckets for item in bucket]
             if len(flattened) != len(set(flattened)):
                 errors.append(
-                    "$: sweep match IDs must not appear in more than one bucket"
+                    "$: intake match IDs must not appear in more than one bucket"
                 )
 
     if version == "fom-c-rank-v1":
@@ -229,7 +229,7 @@ def validate_bundle(receipts):
             )
 
     ref_fields = {
-        "fom-c-rank-v1": "sweep_receipt_ref",
+        "fom-c-rank-v1": "intake_receipt_ref",
         "fom-c-decision-v1": "rank_receipt_ref",
         "fom-c-reconciliation-v1": "frozen_receipt_ref",
     }
