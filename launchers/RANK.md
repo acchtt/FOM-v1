@@ -6,12 +6,12 @@ Effort: **Medium**
 ## Invocation
 
 ```text
-/rank <fom-c-intake-v1 receipt>
+/rank <fom-c-sweep-v1 receipt>
 ```
 
 ## Authority gate
 
-Read `football_c_authority.commit_sha` from the intake receipt.
+Read `football_c_authority.commit_sha` from the sweep receipt.
 
 At that exact SlipTrace SHA load:
 
@@ -46,5 +46,5 @@ Return `fom-c-rank-v1` wrapping the C result and the same pinned authority SHA.
 Validate before handoff:
 
 ```bash
-python tools/validate_receipt.py <intake.json> <rank.json>
+python tools/validate_receipt.py <sweep.json> <rank.json>
 ```
