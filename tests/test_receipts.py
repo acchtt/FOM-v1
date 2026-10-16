@@ -29,6 +29,7 @@ def base(version, stage, run_id, stage_path, sha=SHA):
         "schema_version": version,
         "workflow_id": "FOMC-workflow-001",
         "run_id": run_id,
+        "route_owner": "FOM_WORK",
         "stage": stage,
         "created_at": NOW,
         "evidence_refs": [],
@@ -115,6 +116,18 @@ class ReceiptTests(unittest.TestCase):
         x = sweep()
         x["excluded_match_ids"] = ["m1"]
         self.assertTrue(validate(x, SCHEMA))
+
+    def test_legacy_route_owner_is_rejected(self):
+        x = sweep()
+        x["route_owner"] = "LEGACY_SLIPTRACE"
+        self.assertTrue(validate(x, SCHEMA))
+
+    def test_bundle_rejects_wrong_upstream_stage_type(self):
+        s = sweep()
+        r = rank()
+        r["sweep_receipt_ref"] = r["run_id"]
+        errors = validate_bundle([s, r])
+        self.assertTrue(any("must reference fom-c-sweep-v1" in e for e in errors))
 
     def test_rank_board_is_exactly_c_focus(self):
         x = rank()
