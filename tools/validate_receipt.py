@@ -42,7 +42,7 @@ def check(value, rule, path="$"):
     if kind == "array":
         for i, item in enumerate(value):
             errors.extend(check(item, rule.get("items", {}), f"{path}[{i}]"))
-    if kind == "object":
+    if kind == "object" or (kind is None and isinstance(value, dict) and ("required" in rule or "properties" in rule)):
         for field in rule.get("required", []):
             if field not in value:
                 errors.append(f"{path}.{field}: missing")
