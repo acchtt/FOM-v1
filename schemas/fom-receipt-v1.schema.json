@@ -14,6 +14,7 @@
         "football_c_authority",
         "requested_window",
         "native_receipt_ref",
+        "native_source_ref",
         "native_receipt_status",
         "eligible_match_ids",
         "pending_match_ids",
@@ -71,10 +72,10 @@
           "additionalProperties": false
         },
         "schema_version": {
-          "const": "fom-c-sweep-v1"
+          "const": "fom-c-intake-v1"
         },
         "stage": {
-          "const": "sweep"
+          "const": "intake"
         },
         "requested_window": {
           "type": "object",
@@ -128,26 +129,34 @@
         "consistency_checks": {
           "type": "object",
           "required": [
-            "complete_date_surface_contract_applied",
-            "standing_exclusions_applied",
-            "no_odds_or_lineup_blocker_added",
+            "canonical_v4_bundle_present",
+            "native_receipt_attested",
+            "frozen_cohort_unchanged",
+            "no_fixture_discovery_performed",
             "no_c_prediction_emitted"
           ],
           "properties": {
-            "complete_date_surface_contract_applied": {
+            "canonical_v4_bundle_present": {
               "type": "boolean"
             },
-            "standing_exclusions_applied": {
+            "native_receipt_attested": {
               "type": "boolean"
             },
-            "no_odds_or_lineup_blocker_added": {
+            "frozen_cohort_unchanged": {
               "type": "boolean"
+            },
+            "no_fixture_discovery_performed": {
+              "const": true
             },
             "no_c_prediction_emitted": {
-              "type": "boolean"
+              "const": true
             }
           },
           "additionalProperties": false
+        },
+        "native_source_ref": {
+          "type": "string",
+          "minLength": 1
         }
       },
       "additionalProperties": false
@@ -162,7 +171,7 @@
         "stage",
         "evidence_refs",
         "football_c_authority",
-        "sweep_receipt_ref",
+        "intake_receipt_ref",
         "c_execution_ref",
         "assessed",
         "official_board",
@@ -223,10 +232,6 @@
         },
         "stage": {
           "const": "rank"
-        },
-        "sweep_receipt_ref": {
-          "type": "string",
-          "minLength": 1
         },
         "c_execution_ref": {
           "type": "string",
@@ -328,6 +333,10 @@
             }
           },
           "additionalProperties": false
+        },
+        "intake_receipt_ref": {
+          "type": "string",
+          "minLength": 1
         }
       },
       "additionalProperties": false
