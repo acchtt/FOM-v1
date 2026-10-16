@@ -1,27 +1,30 @@
-# /sweep — Football C consistency stage
+# /sweep — FOM_WORK Football C intake
 
 Model: GPT-6 Luna, Medium.
 
-Authority is the pinned SlipTrace
-`models/football/stages_v4/SWEEP.md`.
+This is the acquisition stage of the FOM Work route.
 
-FOM does not define a second intake model.
+## Route
+
+Create a new workflow with:
+
+```text
+route_owner = FOM_WORK
+```
+
+Do not use a legacy SlipTrace sweep receipt as this stage's output.
+
+## Authority
+
+Pin current SlipTrace main and load:
+`models/football/stages_v4/SWEEP.md` plus current V4 modules.
 
 ## Responsibilities
 
-- resolve and pin current Football C authority for a new workflow;
-- apply the native V4 acquisition/intake contract exactly;
-- preserve current user exclusions and protected exceptions from SlipTrace;
-- record native V4 output references;
-- detect missing evidence or procedure drift;
-- emit no football prediction.
-
-## Forbidden
-
-- alternate FOM research/admission rules;
-- fixed board cap;
-- odds or lineup blockers not present in current V4;
-- FOM prediction states;
-- retrospective fixture admission.
+- execute the current V4 date-surface acquisition contract;
+- apply current exclusions and protected exceptions;
+- perform source-backed goals-first intake;
+- preserve provenance and frozen cohort;
+- produce no C prediction.
 
 Output `fom-c-sweep-v1`.
