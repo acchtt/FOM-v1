@@ -1,29 +1,27 @@
-# /sweep — FOM v1
+# /sweep — Football C consistency stage
 
 Model: GPT-6 Luna, Medium.
 
-## Goal
+Authority is the pinned SlipTrace
+`models/football/stages_v4/SWEEP.md`.
 
-Build a complete neutral research cohort for the requested time window without
-making a FOM prediction.
+FOM does not define a second intake model.
 
-## Do
+## Responsibilities
 
-- resolve fixture identity, competition and kickoff;
-- remove friendlies and configured exclusions;
-- gather lightweight current goal-relevant evidence;
-- flag missing or conflicting evidence;
-- prioritize research order by evidence quality and plausible goal relevance.
+- resolve and pin current Football C authority for a new workflow;
+- apply the native V4 acquisition/intake contract exactly;
+- preserve current user exclusions and protected exceptions from SlipTrace;
+- record native V4 output references;
+- detect missing evidence or procedure drift;
+- emit no football prediction.
 
-## Do not
+## Forbidden
 
-- read Football C outputs;
-- create ACT/WAIT/PASS;
-- invent odds;
-- use eventual results;
-- force a fixed number of fixtures.
+- alternate FOM research/admission rules;
+- fixed board cap;
+- odds or lineup blockers not present in current V4;
+- FOM prediction states;
+- retrospective fixture admission.
 
-## Output
-
-Freeze `fom-sweep-v1` JSON with run_id, requested window, created_at,
-evidence references, research_queue, pending, and excluded.
+Output `fom-c-sweep-v1`.
