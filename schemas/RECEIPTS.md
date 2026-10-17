@@ -1,38 +1,34 @@
 # FOM_WORK Football C receipt contracts
 
 FOM receipts represent a complete alternative Work execution route for Football
-C. They are not wrappers around legacy SlipTrace stage outputs.
+C.
 
-Every FOM receipt includes:
-
-```json
-{
-  "workflow_id": "FOMC-...",
-  "run_id": "FOMC-...",
-  "route_owner": "FOM_WORK",
-  "football_c_authority": {
-    "repository": "acchtt/SlipTrace",
-    "commit_sha": "<40 hex>",
-    "active_model": "C",
-    "current_model_path": "models/football/CURRENT_MODEL.md",
-    "stage_authority_path": "<stage authority>"
-  }
-}
-```
+Every FOM receipt includes `route_owner=FOM_WORK`, one workflow ID, and one
+pinned Football C authority revision.
 
 ## fom-c-sweep-v1
 
-Created by the FOM Work sweep. It owns the workflow and freezes
-`route_owner=FOM_WORK`.
+The FOM sweep receipt distinguishes native intake status from downstream handoff
+status.
 
-It records the FOM-acquired window/cohort/provenance and emits no prediction.
+`handoff_state` is one of:
+
+- `RANK_READY` — eligible cohort is non-empty and may go to rank;
+- `RESEARCH_PENDING` — native intake is valid, but eligible=0 while
+  goal/researchability work remains;
+- `EMPTY_FINAL` — native intake is complete, eligible=0 and no pending
+  admission research remains;
+- `BLOCKED` — named process blocker.
+
+A native `V4_SWEEP_READY` with zero eligible and pending research is therefore
+**not** a FOM rank handoff.
 
 ## fom-c-rank-v1
 
-Consumes only the matching FOM sweep receipt.
+Consumes only a matching FOM sweep receipt with
+`handoff_state=RANK_READY`.
 
-Assessed rows use Football C states only:
-FOCUS, WATCH, PASS.
+Assessed rows use Football C states only: FOCUS, WATCH, PASS.
 
 `official_board` contains exactly all C-FOCUS IDs. No numeric cap.
 
