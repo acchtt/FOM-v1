@@ -411,6 +411,8 @@
         "basis",
         "invalidation_conditions",
         "price_evidence_mode",
+        "market_disagreement_recheck_completed",
+        "market_disagreement_recheck_required",
         "consistency_checks"
       ],
       "properties": {
@@ -564,7 +566,8 @@
             "no_replacement_odds",
             "certificate_upgrade_guard_applied",
             "wait_reachability_checked",
-            "no_retrospective_prematch_action"
+            "no_retrospective_prematch_action",
+            "market_disagreement_gate_applied"
           ],
           "properties": {
             "same_authority_revision": {
@@ -581,12 +584,32 @@
             },
             "no_retrospective_prematch_action": {
               "type": "boolean"
+            },
+            "market_disagreement_gate_applied": {
+              "const": true
             }
           },
           "additionalProperties": false
         },
         "route_owner": {
           "const": "FOM_WORK"
+        },
+        "market_disagreement_recheck_required": {
+          "type": "boolean"
+        },
+        "market_disagreement_recheck_completed": {
+          "type": "boolean"
+        },
+        "market_disagreement_recheck_basis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "market_disagreement_recheck_evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         }
       },
       "additionalProperties": false,
@@ -636,6 +659,32 @@
                   "home_score",
                   "away_score"
                 ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "market_disagreement_recheck_required": {
+                "const": true
+              }
+            },
+            "required": [
+              "market_disagreement_recheck_required"
+            ]
+          },
+          "then": {
+            "required": [
+              "market_disagreement_recheck_basis",
+              "market_disagreement_recheck_evidence_refs"
+            ],
+            "properties": {
+              "market_disagreement_recheck_completed": {
+                "const": true
+              },
+              "market_disagreement_recheck_evidence_refs": {
+                "minItems": 1
               }
             }
           }

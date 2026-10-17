@@ -37,6 +37,16 @@ Assessed rows use Football C states only: FOCUS, WATCH, PASS.
 Consumes only the matching FOM rank receipt and records the actual C
 ACT/WAIT/PASS decision.
 
+For screenshot-only XI decisions it also records:
+
+- `market_disagreement_recheck_required`;
+- `market_disagreement_recheck_completed`;
+- recheck basis/evidence refs when required;
+- `market_disagreement_gate_applied=true`.
+
+A material-disagreement decision receipt cannot be frozen until the C runtime's
+recheck gate is cleared.
+
 ## fom-c-reconciliation-v1
 
 Uses frozen FOM route receipts and outcomes to separate process/application
