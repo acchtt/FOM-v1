@@ -35,5 +35,9 @@ jobs:
           assert '"FOM_WORK"' in text
           assert "fom-c-sweep-v1" in text
           assert "fom-c-rank-v1" in text
-          print("PASS — FOM receipts enforce FOM_WORK route + Football C authority")
+          assert '"handoff_state"' in text
+          assert '"RANK_READY"' in text
+          assert '"RESEARCH_PENDING"' in text
+          assert '"EMPTY_FINAL"' in text
+          print("PASS — FOM receipts enforce route, C authority, and rank-ready handoffs")
           PY
