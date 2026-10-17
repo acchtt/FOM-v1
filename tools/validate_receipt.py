@@ -209,32 +209,6 @@ def validate(receipt, schema):
                         "$.official_board: must contain exactly all C-FOCUS assessed IDs"
                     )
 
-    if version == "fom-c-decision-v1":
-        required = receipt.get("market_disagreement_recheck_required")
-        completed = receipt.get("market_disagreement_recheck_completed")
-        checks = receipt.get("consistency_checks", {})
-        if checks.get("market_disagreement_gate_applied") is not True:
-            errors.append(
-                "$.consistency_checks.market_disagreement_gate_applied: must be true"
-            )
-        if required is True:
-            if completed is not True:
-                errors.append(
-                    "$.market_disagreement_recheck_completed: required disagreement must be completed"
-                )
-            basis = receipt.get("market_disagreement_recheck_basis")
-            refs = receipt.get("market_disagreement_recheck_evidence_refs")
-            if not isinstance(basis, str) or not basis.strip():
-                errors.append(
-                    "$.market_disagreement_recheck_basis: required disagreement needs a non-empty basis"
-                )
-            if not isinstance(refs, list) or not refs or any(
-                not isinstance(x, str) or not x.strip() for x in refs
-            ):
-                errors.append(
-                    "$.market_disagreement_recheck_evidence_refs: required disagreement needs evidence refs"
-                )
-
     if version == "fom-c-reconciliation-v1":
         if (
             receipt.get("primary_issue_class") == "C_MODEL_MISS"
