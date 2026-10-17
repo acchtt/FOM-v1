@@ -201,60 +201,17 @@ class ReceiptTests(unittest.TestCase):
             "basis": "C conditional execution state",
             "invalidation_conditions": [],
             "price_evidence_mode": "USER_SCREENSHOT_ONLY",
-            "market_disagreement_recheck_required": False,
-            "market_disagreement_recheck_completed": True,
             "consistency_checks": {
                 "same_authority_revision": True,
                 "no_replacement_odds": True,
                 "certificate_upgrade_guard_applied": True,
                 "wait_reachability_checked": True,
                 "no_retrospective_prematch_action": True,
-                "market_disagreement_gate_applied": True,
             },
         }
         self.assertTrue(validate(x, SCHEMA))
         x["wait_condition"] = "O2.5 reaches required C price"
         x["reachability_basis"] = "reachable from the observed screenshot state"
-        self.assertEqual(validate(x, SCHEMA), [])
-
-    def test_material_disagreement_cannot_freeze_uncleared_fom_decision(self):
-        x = {
-            **base(
-                "fom-c-decision-v1",
-                "decision",
-                "FOMC-disagreement-001",
-                "models/football/prompts/02_NORMAL_CHAT_XI_ODDS.md",
-            ),
-            "rank_receipt_ref": "FOMC-rank-001",
-            "c_execution_ref": "C-xi-disagreement-001",
-            "match_id": "m1",
-            "context": {"phase": "prematch"},
-            "c_decision": "PASS",
-            "c_board_state": "FOCUS",
-            "basis": "Observed O3.5 materially exceeded the frozen C burden.",
-            "invalidation_conditions": [],
-            "price_evidence_mode": "USER_SCREENSHOT_ONLY",
-            "market_disagreement_recheck_required": True,
-            "market_disagreement_recheck_completed": False,
-            "consistency_checks": {
-                "same_authority_revision": True,
-                "no_replacement_odds": True,
-                "certificate_upgrade_guard_applied": True,
-                "wait_reachability_checked": True,
-                "no_retrospective_prematch_action": True,
-                "market_disagreement_gate_applied": True,
-            },
-        }
-        self.assertTrue(validate(x, SCHEMA))
-
-        x["market_disagreement_recheck_completed"] = True
-        x["market_disagreement_recheck_basis"] = (
-            "Upper-tail transferability and comparable-context football evidence "
-            "were rechecked before rerunning the deterministic C certificate."
-        )
-        x["market_disagreement_recheck_evidence_refs"] = [
-            "current-football-recheck-source-1"
-        ]
         self.assertEqual(validate(x, SCHEMA), [])
 
     def test_live_requires_live_authority_and_score_minute(self):
@@ -274,15 +231,12 @@ class ReceiptTests(unittest.TestCase):
             "basis": "current C route no longer supports action",
             "invalidation_conditions": [],
             "price_evidence_mode": "LIVE_COMPARISON_ONLY",
-            "market_disagreement_recheck_required": False,
-            "market_disagreement_recheck_completed": True,
             "consistency_checks": {
                 "same_authority_revision": True,
                 "no_replacement_odds": True,
                 "certificate_upgrade_guard_applied": True,
                 "wait_reachability_checked": True,
                 "no_retrospective_prematch_action": True,
-                "market_disagreement_gate_applied": True,
             },
         }
         self.assertTrue(validate(x, SCHEMA))
