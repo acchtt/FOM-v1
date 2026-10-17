@@ -12,12 +12,7 @@ Use the pinned Football C XI authority and apply C exactly:
 - user screenshot is the sole quote when supplied;
 - no replacement odds search;
 - frozen-certificate upgrade guard;
-- C WAIT reachability and price policy;
-- mandatory market-disagreement recheck gate from the pinned C runtime.
-
-If the runtime returns `MARKET_DISAGREEMENT_RECHECK_REQUIRED`, continue the
-football research and rerun the deterministic C certificate/runtime in the same
-Work task. Do not freeze ACT/WAIT/PASS until the gate clears.
+- C WAIT reachability and price policy.
 
 ## /live
 
