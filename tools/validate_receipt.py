@@ -159,6 +159,32 @@ def validate(receipt, schema):
                 errors.append(
                     "$: sweep match IDs must not appear in more than one bucket"
                 )
+        eligible = receipt.get("eligible_match_ids", [])
+        pending = receipt.get("pending_match_ids", [])
+        handoff = receipt.get("handoff_state")
+        native_status = receipt.get("native_receipt_status")
+
+        if isinstance(eligible, list) and isinstance(pending, list):
+            if native_status == "BLOCKED":
+                if handoff != "BLOCKED":
+                    errors.append("$.handoff_state: BLOCKED native sweep must use BLOCKED")
+            elif native_status == "V4_SWEEP_READY":
+                if eligible:
+                    if handoff != "RANK_READY":
+                        errors.append(
+                            "$.handoff_state: non-empty eligible cohort must be RANK_READY"
+                        )
+                elif pending:
+                    if handoff != "RESEARCH_PENDING":
+                        errors.append(
+                            "$.handoff_state: zero eligible + pending research must be RESEARCH_PENDING"
+                        )
+                else:
+                    if handoff != "EMPTY_FINAL":
+                        errors.append(
+                            "$.handoff_state: zero eligible + zero pending must be EMPTY_FINAL"
+                        )
+
 
     if version == "fom-c-rank-v1":
         assessed = receipt.get("assessed", [])
@@ -254,6 +280,13 @@ def validate_bundle(receipts):
         if upstream.get("workflow_id") != receipt.get("workflow_id"):
             errors.append(
                 f"{receipt.get('run_id')}: {ref_field} crosses workflow_id"
+            )
+        if (
+            receipt.get("schema_version") == "fom-c-rank-v1"
+            and upstream.get("handoff_state") != "RANK_READY"
+        ):
+            errors.append(
+                f"{receipt.get('run_id')}: rank requires upstream sweep handoff_state=RANK_READY"
             )
         if upstream.get("route_owner") != "FOM_WORK":
             errors.append(
