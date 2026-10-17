@@ -15,6 +15,7 @@
         "football_c_authority",
         "requested_window",
         "native_receipt_status",
+        "handoff_state",
         "eligible_match_ids",
         "pending_match_ids",
         "excluded_match_ids",
@@ -157,6 +158,14 @@
             "SOURCE_SURFACE_BLOCKED",
             "SOURCE_COMPLETENESS_FAILED",
             "NATIVE_EXECUTION_UNAVAILABLE"
+          ]
+        },
+        "handoff_state": {
+          "enum": [
+            "RANK_READY",
+            "RESEARCH_PENDING",
+            "EMPTY_FINAL",
+            "BLOCKED"
           ]
         }
       },

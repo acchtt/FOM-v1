@@ -10,15 +10,31 @@ Route owner: **FOM_WORK**
 /rank <fom-c-sweep-v1 receipt>
 ```
 
-## Route gate
+For `/rank FOM newest receipt`, resolve the latest FOM sweep receipt for the
+active workflow. Do not silently fall back to an older workflow.
+
+## Route and handoff gate
 
 Accept only a FOM sweep receipt with:
 
 - the same `workflow_id`;
 - `route_owner = FOM_WORK`;
-- a pinned Football C authority SHA.
+- a pinned Football C authority SHA;
+- `handoff_state = RANK_READY`;
+- at least one eligible fixture.
 
-Do not substitute a legacy SlipTrace sweep receipt or legacy rank output.
+If the newest FOM sweep is `RESEARCH_PENDING`, do not attempt C ranking and do
+not call the slate complete. Return the exact recovery action:
+
+```text
+/sweep resume <workflow_id>
+```
+
+If it is `EMPTY_FINAL`, report an honest completed empty shortlist. If it is
+`BLOCKED`, report its named blocker.
+
+Do not substitute a legacy SlipTrace sweep receipt, older FOM workflow, or
+legacy rank output.
 
 ## Authority gate
 
@@ -33,7 +49,7 @@ silently switch this workflow.
 
 ## Execute Football C rank
 
-Research the complete FOM sweep cohort and apply C exactly:
+Research the complete eligible FOM sweep cohort and apply C exactly:
 
 - fresh status/kickoff checks required by the pinned rank contract;
 - current football evidence;

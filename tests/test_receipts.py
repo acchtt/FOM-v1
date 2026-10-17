@@ -52,6 +52,7 @@ def sweep(run_id="FOMC-sweep-001", sha=SHA):
         },
         "native_receipt_ref": "V4-test",
         "native_receipt_status": "V4_SWEEP_READY",
+        "handoff_state": "RANK_READY",
         "eligible_match_ids": ["m1"],
         "pending_match_ids": [],
         "excluded_match_ids": [],
@@ -115,10 +116,38 @@ class ReceiptTests(unittest.TestCase):
     def test_blocked_sweep_requires_named_blocker_not_fake_receipt(self):
         x = sweep()
         x["native_receipt_status"] = "BLOCKED"
+        x["handoff_state"] = "BLOCKED"
         x.pop("native_receipt_ref")
         self.assertTrue(validate(x, SCHEMA))
         x["blocker_code"] = "SOURCE_SURFACE_BLOCKED"
         self.assertEqual(validate(x, SCHEMA), [])
+
+    def test_zero_eligible_with_pending_is_research_pending(self):
+        x = sweep()
+        x["eligible_match_ids"] = []
+        x["pending_match_ids"] = ["m1", "m2"]
+        x["handoff_state"] = "RANK_READY"
+        self.assertTrue(validate(x, SCHEMA))
+        x["handoff_state"] = "RESEARCH_PENDING"
+        self.assertEqual(validate(x, SCHEMA), [])
+
+    def test_zero_eligible_without_pending_is_empty_final(self):
+        x = sweep()
+        x["eligible_match_ids"] = []
+        x["pending_match_ids"] = []
+        x["handoff_state"] = "RANK_READY"
+        self.assertTrue(validate(x, SCHEMA))
+        x["handoff_state"] = "EMPTY_FINAL"
+        self.assertEqual(validate(x, SCHEMA), [])
+
+    def test_rank_rejects_research_pending_sweep(self):
+        s = sweep()
+        s["eligible_match_ids"] = []
+        s["pending_match_ids"] = ["m2"]
+        s["handoff_state"] = "RESEARCH_PENDING"
+        r = rank()
+        errors = validate_bundle([s, r])
+        self.assertTrue(any("handoff_state=RANK_READY" in e for e in errors))
 
     def test_sweep_buckets_are_disjoint(self):
         x = sweep()
