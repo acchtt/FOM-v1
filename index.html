@@ -8,7 +8,7 @@
 @media(max-width:760px){.shell{padding:18px 15px 50px}.hero{grid-template-columns:1fr;padding:32px 0 18px;gap:20px}.guide-grid{grid-template-columns:1fr}.top{align-items:flex-start}.edition{font-size:10px;text-align:right}.toolbar{flex-direction:column;align-items:stretch}.facts{grid-template-columns:1fr 1fr}.section-head{align-items:flex-start;flex-direction:column}.footer{flex-direction:column}}@media print{body{background:#fff;color:#111}.shell{max-width:none;padding:0}.top,.profile,.guide{background:#fff;color:#111;border-color:#ccc}.hero p,.guide .sub,.notice,.footer,.section-head p{color:#444}.guide-grid{display:block}.guide{break-inside:avoid;margin:10px 0}.guide .body{color:#222}.tabs,.toolbar,.print{display:none}.guide summary:after{display:none}}
 </style></head>
 <body><main class="shell">
-<header class="top"><div class="brand"><div class="sigil">杖</div><div><strong>SWORD × STAFF</strong><span>PLAYER FIELD GUIDE · 杖剑传说</span></div></div><div class="edition">Personal handbook · v1.0</div></header>
+<header class="top"><div class="brand"><div class="sigil">杖</div><div><strong>SWORD × STAFF</strong><span>PLAYER FIELD GUIDE · 杖剑传说</span></div></div><div class="edition">Personal handbook · v1.1</div></header>
 <section class="hero"><div><h1>A practical field guide for your account.</h1><p>One place for builds, progression, event planning and resource decisions. Account-specific notes are separated from mechanics that still need in-game verification.</p></div><aside class="profile"><h2>Current account snapshot</h2><div class="facts"><div class="fact"><small>Class / tier</small><b>T3 Sage · Arcanist</b></div><div class="fact"><small>Playstyle</small><b>F2P / light spender</b></div><div class="fact"><small>Skills</small><b>All unlocked · low stars</b></div><div class="fact"><small>Fantomon plan</small><b>Aegiswing first Mythic</b></div><div class="fact"><small>Guild</small><b>Level 9 reported</b></div><div class="fact"><small>Current focus</small><b>Relic progression</b></div></div></aside></section>
 <div class="toolbar"><label class="search"><input id="search" type="search" placeholder="Search guides, items, events…" aria-label="Search guides"></label><button class="print" onclick="window.print()">Print / Save PDF</button></div>
 <nav class="tabs" aria-label="Guide categories"><button class="tab" data-filter="all" aria-selected="true">All guides</button><button class="tab" data-filter="build" aria-selected="false">Builds</button><button class="tab" data-filter="progress" aria-selected="false">Progression</button><button class="tab" data-filter="events" aria-selected="false">Events</button><button class="tab" data-filter="economy" aria-selected="false">Economy</button><button class="tab" data-filter="account" aria-selected="false">Account notes</button></nav>
@@ -25,7 +25,102 @@
 </div></section>
 <section><div class="section-head"><h2>Events & limited resources</h2><p>Plan around rewards, not habit.</p></div><div class="guide-grid">
 <details class="guide" data-category="events"><summary><div><h3>Wheel of Destiny</h3><div class="sub">Ticket use and wheel selection</div></div></summary><div class="body"><span class="tag check">Reward pool rotates</span><p>Older guide compared four wheel types: Skill, Relic, Fantomon and Currency. A previous recommendation ranked Skill and Relic wheels ahead of Fantomon and Currency, but this should be reassessed against your current account and exact jackpot rewards.</p><p>Now that all skills are unlocked, a Relic wheel may be more attractive when it offers useful Goddess Cards / relic rewards. Do not spend tickets solely because they are available.</p><p>Before committing, check: jackpot contents, number of tickets needed, whether the reward is selectable or random, and whether the event is time-limited.</p></div></details>
-<details class="guide" data-category="events"><summary><div><h3>Grand Treasure Hunt / 秘宝大作战</h3><div class="sub">Save energy for milestone rewards</div></div></summary><div class="body"><span class="tag check">Historical arithmetic · verify event rules</span><p>Previous notes described a tiered event using Auroradrasil Energy / 世界树能量. The stated tier costs were L1 240, L2 400, L3 600, L4 800, and L5 reward 1,200.</p><p>Based on those stated costs, unlocking one L5 reward costs 3,240 total; two cost 4,440; three cost 5,640. The old guide estimated around 2,250 free energy per event, but that income and event recurrence need checking on your server.</p><p>F2P strategy: compare the exact L5 reward rotation and save across events only if the currency carries over. Never assume event energy carries forward without checking the event notice.</p></div></details>
+<details class="guide" data-category="events account progress" id="grand-treasure-hunt" open>
+<summary><div><h3>Grand Treasure Hunt / 秘宝大作战</h3><div class="sub">Bilingual event guide · World Tree Energy, reward tiers, F2P cycles and relic priorities</div></div></summary>
+<div class="body">
+<span class="tag good">Expanded guide · EN + 中文</span><span class="tag account">Personalized for your T3 Arcanist</span>
+<p><b>Names:</b> <b>Grand Treasure Hunt</b> (English/global name) = <b>秘宝大作战</b> (Chinese name). The event currency is <b>World Tree Energy / 世界树能量</b>; Prydwen's English guide calls it <i>Auroradrasil Energy</i>. Each period lasts seven days and the event first opens on server day 8.</p>
+
+<div class="callout"><strong>The two rules that matter most:</strong> unused World Tree Energy carries into the next period, but the reward-tier progress resets and you start again at Level 1. Save the currency, not the tier unlocks. Do not spend just because the weekly event has refreshed.</div>
+
+<h4>1 · Energy and unlock costs / 能量与解锁规则</h4>
+<p>One reward purchase at each of Levels 1–4 unlocks the next level. You do <b>not</b> have to buy every reward at a level to progress.</p>
+<div class="table-wrap"><table><thead><tr><th>Tier</th><th>Cost for one reward</th><th>What it unlocks</th><th>Chinese label</th></tr></thead><tbody>
+<tr><td>Level 1</td><td>240</td><td>Level 2</td><td>第1层</td></tr>
+<tr><td>Level 2</td><td>400</td><td>Level 3</td><td>第2层</td></tr>
+<tr><td>Level 3</td><td>600</td><td>Level 4</td><td>第3层</td></tr>
+<tr><td>Level 4</td><td>800</td><td>Level 5</td><td>第4层</td></tr>
+<tr><td>Level 5</td><td>1,200 per prize</td><td>Top-tier reward; no further tier</td><td>第5层 / 封印宝藏</td></tr>
+</tbody></table></div>
+<p><b>Minimum route to one Level 5 prize:</b> 240 + 400 + 600 + 800 + 1,200 = <b>3,240 energy</b>. The first four purchases cost 2,040; the Level 5 prize itself costs another 1,200.</p>
+<p>For comparison, two Level 5 prizes in one period cost <b>4,440</b> in total (2,040 + 2 × 1,200); three cost <b>5,640</b>. The Chinese guide also reports <b>9,720</b> to clear every reward across all five tiers in its three-choice-per-tier layout: 3 × (240 + 400 + 600 + 800 + 1,200). These are different targets—do not confuse a full shop clear with buying one, two or three Level 5 prizes.</p>
+<div class="callout"><strong>Free income:</strong> about <b>2,250 energy per week</b>—2,240 from event tasks plus 10 from the free shop gift pack. That is not enough to reach a Level 5 prize from zero in one week, but two weeks provide about 4,500.</div>
+
+<h4>2 · F2P / light-spender planning / 零氪、微氪规划</h4>
+<div class="table-wrap"><table><thead><tr><th>Plan</th><th>How to run it</th><th>Result</th></tr></thead><tbody>
+<tr><td><b>Conservative</b><br>Save → claim</td><td>Spend nothing in one period. In the next, use the bank to buy one Level 1–4 unlock and one Level 5 prize.</td><td>One Level 5 prize costs 3,240; from 4,500 banked energy, about 1,260 remains.</td></tr>
+<tr><td><b>Efficient rolling cycle</b><br>(0 → 5 → 5)</td><td>Skip the first period, then claim one Level 5 prize in each of the next two periods. The second claim uses the remaining bank plus the next week's income.</td><td>Two Level 5 prizes over three event periods; about 270 energy remains after the two claims.</td></tr>
+<tr><td><b>Two-prize burst</b><br>(0 → 2×5)</td><td>Save one full period, then—only when that event's Level 5 choices are both worthwhile—buy two Level 5 prizes in the next period.</td><td>Two prizes cost 4,440; two weeks' free income is about 4,500, leaving roughly 60.</td></tr>
+</tbody></table></div>
+<p><b>Notation from the Chinese guide:</b> <b>0</b> = do not spend this period; <b>5</b> = take one reward at each tier, including one Level 5 prize; <b>2×5</b> = take two Level 5 prizes after unlocking the tier. The exact prize menu changes, so only use the burst plan when the event actually offers two top-tier choices you want.</p>
+<ul>
+<li>Bank energy when the rotating Level 5 relic is low value for your account.</li>
+<li>Spend when a limited relic or selection chest appears, or when the accumulated balance reaches the cost of a reward you have already decided to take.</li>
+<li>Don't buy extra Level 1–4 rewards just to feel that the event currency was used. One purchase per tier is enough to reach Level 5.</li>
+<li>Never assume a reward or energy balance resets just because the event timer ends. Currency carries over; the tier ladder starts over.</li>
+</ul>
+
+<h4>3 · What to take from Levels 1–4 / 前四层选什么</h4>
+<div class="table-wrap"><table><thead><tr><th>Tier</th><th>English guide recommendation</th><th>Practical interpretation</th></tr></thead><tbody>
+<tr><td>Level 1 / 第1层</td><td><b>Basic Treats</b> first; Iron or Chronos Sand are reasonable alternatives.</td><td>Choose the material you routinely run short of. Don't take a low-value filler just to unlock faster if another listed item helps your account more.</td></tr>
+<tr><td>Level 2 / 第2层</td><td><b>Companion Gifts</b>.</td><td>Useful long-term because companion progression consumes many gifts.</td></tr>
+<tr><td>Level 3 / 第3层</td><td><b>Destiny Fruit</b> or more Companion Gifts.</td><td>Destiny Fruit can improve the chance of meeting bosses, merchants and better map rewards. Choose gifts instead when companion growth is the immediate bottleneck.</td></tr>
+<tr><td>Level 4 / 第4层</td><td><b>Legendary Auroral Badges</b> when they are the paid-exclusive option.</td><td>Avoid spending this unlock on Stellatie or Bond Trinkets if those are readily obtainable through F2P sources on your server.</td></tr>
+</tbody></table></div>
+<p><span class="tag check">Check your event panel</span> The English recommendations above come from Prydwen's guide. Translations, item pools and free-source availability can differ by server/season; compare the actual item tooltip and shop before claiming.</p>
+
+<h4>4 · Level 5 rotation / 第五层大奖轮换</h4>
+<p>The Level 5 headline prize is the reason to save energy. The English and Chinese guides agree on the core idea—its contents rotate, and some important long-term relics are event-exclusive—but the exact menu has evolved. Treat the list below as a rotation history, not a promise that every item appears together in the current event.</p>
+<div class="table-wrap"><table><thead><tr><th>Prize / 中文名称</th><th>What it does</th><th>How to value it</th></tr></thead><tbody>
+<tr><td><b>Lucky Statue</b><br>幸运神像</td><td>+10% chance for dungeon appraisal rewards to double (副本评价奖励翻倍概率).</td><td><b>High long-term value</b> if missing: improves recurring daily dungeon rewards. The Chinese guide places it among the most valuable event-only relics.</td></tr>
+<tr><td><b>Primal Gem</b><br>原初宝石</td><td>+10% Gem acquisition rate (宝石获取率); the Chinese guide describes it as improving gem yield/升华 in eligible exploration and gem activities.</td><td>Good long-term account value when you still use the eligible gem sources. It does not mean every gem source is boosted; check the live tooltip and source rules.</td></tr>
+<tr><td><b>Mythic Relic Selection Chest</b><br>自选奇迹遗物箱·X</td><td>Select a relic from the named region/kingdom pool.</td><td>Save it until one choice completes a collection or fills a specific missing stat (for example Crit, Block or Accuracy). Don't open blindly.</td></tr>
+<tr><td><b>Tier Skill Fragment Selection</b><br>自选X阶技能碎片 ×180</td><td>180 fragments for the stated skill tier.</td><td>Use only when the box matches a core skill and reaches a meaningful star/quality breakpoint. This is not a skill-unlock item.</td></tr>
+<tr><td><b>Golden Sacred Tree</b><br>黄金圣木</td><td>+10% Home wood output (家园木材产出; Cart wood).</td><td>Take when wood production is a genuine long-term bottleneck.</td></tr>
+<tr><td><b>Philosopher's Stone</b><br>贤者之石</td><td>+10% Home stone output (家园石材产出; Cart stone).</td><td>Take when stone production matters to your current Home/Cart progression.</td></tr>
+<tr><td><b>Endless Hourglass</b><br>无尽沙漏</td><td>+10% Home Time Sand output (家园时之砂产出).</td><td>Potentially attractive for a relic-focused account that consistently needs Time Sand; compare the real bottleneck first.</td></tr>
+<tr><td><b>Treasure Detector</b><br>秘宝探测仪</td><td>+10% initial Great Success chance for Scenic/Bond Adventure commissions (奇景初始大成功).</td><td>Value it if you complete the daily commissions regularly. The Chinese guide describes a further resonance-slot interaction; verify the current tooltip.</td></tr>
+<tr><td><b>Other seasonal production relics</b><br>招财猫神像、缤纷食料礼盒、致胜一响、旅行行囊</td><td>Official Chinese patch notes describe season-specific bonuses to Home Rolla, dried rations, Battle Essence and Companion dispatch rewards respectively.</td><td>These are season-specific additions. Compare the resource they boost with what you actually lack; do not assume old relic-box contents are permanent.</td></tr>
+</tbody></table></div>
+<p><b>Duplicate rule:</b> the Chinese guide reports duplicate copies of the named special relics converting into <b>60 corresponding relic fragments</b>. Check the live duplicate/fragment tooltip before planning a star-up around this amount.</p>
+
+<h4>5 · Rotation history and version caution / 轮换与版本差异</h4>
+<ul>
+<li><b>Earlier cycles:</b> the Chinese guide records a repeating set of Miracle Relic Selection Box, Lucky Statue, tier skill fragments ×180 and Primal Gem.</li>
+<li><b>From period 17:</b> the special relic choices expanded to include Golden Sacred Tree and Philosopher's Stone alongside Lucky Statue and Primal Gem.</li>
+<li><b>From period 33:</b> the Chinese guide lists Special Relic Box III (Lucky Statue / Golden Sacred Tree / Endless Hourglass) and Box IV (Primal Gem / Philosopher's Stone / Treasure Detector), plus the Miracle Relic box and tier skill fragments.</li>
+<li><b>Later official season adjustments:</b> a Chinese official notice says some seasons add Home-production relics such as Lucky Cat Statue (招财猫神像, Rolla output) and Colorful Food Gift Box (缤纷食料礼盒, dried-ration output); another season replaces test-server relics with 致胜一响 (Battle Essence output) and 旅行行囊 (Companion dispatch output). The active season's box description overrides this historical list.</li>
+</ul>
+<div class="callout"><strong>Global schedule snapshot · 20 Nov 2026:</strong> community event trackers list the 13 Nov cycle as Primal Gem / Philosopher's Stone and the 20 Nov cycle as a Mythic Relic Selection Chest for Aethyris III. This is a cross-check for the English/global schedule, not proof that every regional server has the same event number or reset time. Your in-game reward panel is authoritative.</div>
+
+<h4>6 · Your T3 Arcanist: recommended decision order / 你的账号优先级</h4>
+<ol>
+<li><b>Lucky Statue, if missing.</b> A recurring chance to double dungeon appraisal rewards compounds over time and is a strong first event-exclusive relic target.</li>
+<li><b>Primal Gem, if its eligible gem sources are still part of your routine.</b> It is a long-term bonus, but don't overrate it if your current progression no longer uses the affected gem sources.</li>
+<li><b>Time Sand / production relics that match your real bottleneck.</b> Endless Hourglass may fit your relic progression; Golden Sacred Tree, Philosopher's Stone, Treasure Detector or newer seasonal relics are choices only when you actively benefit from their output.</li>
+<li><b>Mythic Relic Selection Chest.</b> Hold it until it completes a region collection or selects a stat relic you actually need.</li>
+<li><b>180 skill fragments.</b> You already unlocked all skills, so don't take this for unlocking. Take it only if the tier matches one of your main Arcanist Techniques/Charms and the fragments make a real star/quality upgrade. Confirm exact compatibility in the skill screen.</li>
+</ol>
+<div class="callout"><strong>Account-specific adjustment:</strong> you previously said Rolla is easy to obtain from Material Realm, so a Rolla-production relic such as Lucky Cat Statue is lower priority for you than a bonus to a resource that is genuinely limiting progression. Re-evaluate if your Cart economy changes.</div>
+
+<h4>7 · Quick checklist before claiming / 兑换前检查</h4>
+<ul>
+<li>How much World Tree Energy do I have after today's tasks and free shop pack?</li>
+<li>Does this week's Level 5 panel contain a limited relic/selection chest I still need?</li>
+<li>Have I counted the 2,040 energy required to unlock Level 5 before budgeting the 1,200 prize cost?</li>
+<li>Will this resource/relic help my current account, or is it merely available?</li>
+<li>Am I buying a duplicate? If yes, how many fragments does the current tooltip actually return?</li>
+<li>Will unused energy carry to the next event? Historical and current guides say yes, but re-check the event notice after major updates.</li>
+</ul>
+
+<h4>English + Chinese source shelf / 资料来源</h4>
+<p><a href="https://www.prydwen.gg/sword-x-staff/guides/grand-treasure-hunt" target="_blank" rel="noopener">Prydwen — Grand Treasure Hunt (English reward picks and energy model)</a><br>
+<a href="https://www.taptap.cn/moment/700256868844438774" target="_blank" rel="noopener">TapTap / 李沐泽 — 秘宝大作战个人循环兑换方案 (Chinese cycle plan, special relic effects and duplicate conversion)</a><br>
+<a href="https://www.taptap.cn/moment/841768749001344990?group_id=819278" target="_blank" rel="noopener">TapTap official — 秘宝大作战古遗物调整说明 (season-specific relic-pool changes)</a><br>
+<a href="https://zolotube.com/watch?v=0u6rMYizJtM" target="_blank" rel="noopener">Rezaj — Grand Treasure Hunt F2P Beginner Guide (13 Nov 2026)</a><br>
+<a href="https://limitlessgaming.gg/timeline" target="_blank" rel="noopener">Limitless Gaming — event timeline (global schedule cross-check)</a></p>
+<p class="notice">This section combines English/global and Chinese community material. Prydwen was last updated 24 May 2026; the Chinese cycle guide includes later reward-box changes; the official Chinese notice documents season-specific adjustments. Event currency math is stable across those guides, but item pools and localization can change. Always use the live in-game event panel for your server before spending.</p>
+</div></details>
 </div></section>
 <section><div class="section-head"><h2>Guild shop & economy</h2><p>Guild level 9 is noted; shop building level and inventory still matter.</p></div><div class="guide-grid">
 <details class="guide" data-category="economy account" open><summary><div><h3>Guild Coins: spend or save?</h3><div class="sub">Guild level 9 reported</div></div></summary><div class="body"><span class="tag account">Your account</span><span class="tag check">Shop inventory must be checked</span><p>Guild level 9 does not necessarily mean Guild Shop building level 9. The shop building level controls stock and unlocks.</p><p>Do not hoard all Guild Coins for an unconfirmed event currency exchange. Spend on items that directly advance your current goals, but preserve a reserve if the shop has a limited weekly item you specifically need.</p><p>Older advice suggested Rare Goddess Cards and a weekly Lucky Ticket. Treat the earlier prices and stock counts as unverified until you inspect your current shop.</p><div class="callout"><strong>Before spending:</strong> compare Guild Shop items against your current relic needs, Fantomon plan and weekly limits. A Lucky Ticket is only worth buying when the Wheel of Destiny reward pool justifies it.</div></div></details>
@@ -37,7 +132,7 @@
 <details class="guide" data-category="account"><summary><div><h3>What must be verified before acting</h3><div class="sub">Avoid repeating old or conflicting advice</div></div></summary><div class="body"><ul><li>Current season's permanent relic and skill level thresholds.</li><li>Exact Guild Shop building level, stock, costs and weekly limits.</li><li>Whether Lucky Tickets can be saved and which Wheel rewards are currently active.</li><li>Voucher eligibility: Techniques vs Charms, and fragment conversion rules.</li><li>Grand Treasure Hunt currency carryover, free income and current L5 rewards.</li><li>Current Arcanist skill effects, star breakpoints and best-in-slot combinations.</li><li>Fantomon skill activation, deployment stat scaling and evolution requirements.</li></ul></div></details>
 </div></section>
 <p class="notice">Editorial rule: “Account-specific” means based on details you gave. “Working recommendation” means strategic advice, not an official mechanic. “Needs verification” means an older guide claim that should be checked against your current server, season, patch and in-game tooltip before spending rare resources. This handbook is a living reference, not an official game source.</p>
-<footer class="footer"><span>SWORD × STAFF · PERSONAL FIELD GUIDE</span><span>Last consolidated: 20 Nov 2026 · Version 1.0</span></footer>
+<footer class="footer"><span>SWORD × STAFF · PERSONAL FIELD GUIDE</span><span>Last consolidated: 20 Nov 2026 · Version 1.1</span></footer>
 <div class="empty" id="empty">No matching guide found. Try a different search.</div>
 </main>
 <script>
