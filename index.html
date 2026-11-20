@@ -8,12 +8,113 @@
 @media(max-width:760px){.shell{padding:18px 15px 50px}.hero{grid-template-columns:1fr;padding:32px 0 18px;gap:20px}.guide-grid{grid-template-columns:1fr}.top{align-items:flex-start}.edition{font-size:10px;text-align:right}.toolbar{flex-direction:column;align-items:stretch}.facts{grid-template-columns:1fr 1fr}.section-head{align-items:flex-start;flex-direction:column}.footer{flex-direction:column}}@media print{body{background:#fff;color:#111}.shell{max-width:none;padding:0}.top,.profile,.guide{background:#fff;color:#111;border-color:#ccc}.hero p,.guide .sub,.notice,.footer,.section-head p{color:#444}.guide-grid{display:block}.guide{break-inside:avoid;margin:10px 0}.guide .body{color:#222}.tabs,.toolbar,.print{display:none}.guide summary:after{display:none}}
 </style></head>
 <body><main class="shell">
-<header class="top"><div class="brand"><div class="sigil">杖</div><div><strong>SWORD × STAFF</strong><span>PLAYER FIELD GUIDE · 杖剑传说</span></div></div><div class="edition">Personal handbook · v1.1</div></header>
+<header class="top"><div class="brand"><div class="sigil">杖</div><div><strong>SWORD × STAFF</strong><span>PLAYER FIELD GUIDE · 杖剑传说</span></div></div><div class="edition">Personal handbook · v1.2</div></header>
 <section class="hero"><div><h1>A practical field guide for your account.</h1><p>One place for builds, progression, event planning and resource decisions. Account-specific notes are separated from mechanics that still need in-game verification.</p></div><aside class="profile"><h2>Current account snapshot</h2><div class="facts"><div class="fact"><small>Class / tier</small><b>T3 Sage · Arcanist</b></div><div class="fact"><small>Playstyle</small><b>F2P / light spender</b></div><div class="fact"><small>Skills</small><b>All unlocked · low stars</b></div><div class="fact"><small>Fantomon plan</small><b>Aegiswing first Mythic</b></div><div class="fact"><small>Guild</small><b>Level 9 reported</b></div><div class="fact"><small>Current focus</small><b>Relic progression</b></div></div></aside></section>
 <div class="toolbar"><label class="search"><input id="search" type="search" placeholder="Search guides, items, events…" aria-label="Search guides"></label><button class="print" onclick="window.print()">Print / Save PDF</button></div>
 <nav class="tabs" aria-label="Guide categories"><button class="tab" data-filter="all" aria-selected="true">All guides</button><button class="tab" data-filter="build" aria-selected="false">Builds</button><button class="tab" data-filter="progress" aria-selected="false">Progression</button><button class="tab" data-filter="events" aria-selected="false">Events</button><button class="tab" data-filter="economy" aria-selected="false">Economy</button><button class="tab" data-filter="account" aria-selected="false">Account notes</button></nav>
 <section><div class="section-head"><h2>Progression & account strategy</h2><p>Start here for the decisions that affect long-term growth.</p></div><div class="guide-grid" id="guides">
-<details class="guide" data-category="progress account" open><summary><div><h3>Current priority: relics over skill unlocks</h3><div class="sub">Your T3 Arcanist · current recommendation</div></div></summary><div class="body"><span class="tag account">Account-specific</span><span class="tag good">Current focus</span><p>All skills are unlocked, so shift the main progression focus toward relic collection and permanent collection bonuses. Skill stars still matter; don't abandon them entirely.</p><ol><li>Collect missing relics and complete useful sets.</li><li>Invest in duplicates / stars where they improve useful bonuses.</li><li>Level the five relevant Dark-element relic slots evenly toward the permanent seasonal threshold.</li><li>Keep a reserve for meaningful star upgrades to your main DPS Techniques and Charms.</li><li>Maintain enough seasonal gear power to clear content; avoid over-investing in levels that reset unless they unlock a reward or progression gate.</li></ol><div class="callout"><strong>Season reset caution:</strong> relic collection and duplicates were reported as permanent, but relic levels above the season's permanent threshold may be reduced. Confirm the current season threshold in-game before spending heavily.</div></div></details>
+<details class="guide" data-category="progress account" id="relic-progression" open>
+<summary><div><h3>Relic progression / 古遗物养成</h3><div class="sub">Collection, resonance slots, star upgrades and seasonal planning · EN + 中文</div></div></summary>
+<div class="body">
+<span class="tag good">New bilingual guide · v1.2</span><span class="tag account">Personalized for T3 Arcanist</span>
+
+<p><b>The short plan:</b> collect useful relics first, complete valuable sets, focus your rare Element tokens on <b>Dark / 暗</b>, then level the four Dark resonance slots evenly. Do not pour every duplicate into one relic before you have filled useful gaps in your collection.</p>
+<div class="callout"><strong>Three separate systems:</strong> <b>Collection / 图鉴收集</b> gives you the relic and collection bonuses; <b>Stars / 升星</b> improve a relic and its set-star progress; <b>Resonance / 共鸣</b> is the level track paid with Chrono Sand and Rolla. A relic can be collected, starred and placed in a resonance slot — those are not the same action.</div>
+
+<h4>1 · Understand the three progression tracks / 先分清三种养成</h4>
+<div class="table-wrap"><table><thead><tr><th>Track</th><th>What it gives</th><th>Main cost / material</th><th>Priority</th></tr></thead><tbody>
+<tr><td><b>Collection</b><br>图鉴 / 收集</td><td>Permanent passive stats, Elemental Affinity / 亲和, Elemental Protection / 庇护 and set bonuses.</td><td>New relics from the appropriate region, Element or map source.</td><td><b>First.</b> Fill useful missing pieces and complete sets.</td></tr>
+<tr><td><b>Star ascension</b><br>升星 / 觉醒</td><td>Improves a relic's stats/effect and can unlock higher set-star bonuses.</td><td>Duplicate relic shards and, for some steps, universal shards.</td><td><b>Second.</b> Invest in high-value relics and useful completed sets.</td></tr>
+<tr><td><b>Resonance levels</b><br>共鸣槽等级</td><td>Raises the level used by relics of that element.</td><td>Chrono Sand / 时之砂 and Rolla / 罗拉.</td><td><b>Steady investment.</b> Level all four slots of your main element evenly.</td></tr>
+</tbody></table></div>
+
+<h4>2 · Collection and set bonuses / 图鉴与套装</h4>
+<ul>
+<li>Relics come from different Regions / 国度 and five Elements / 五种元素: Light / 光, Dark / 暗, Wind / 风, Water / 水 and Fire / 火. A collection gives passive benefits; you do not have to wear every relic to receive its collection effects.</li>
+<li>A normal set is built from four relics in the same set group and Element. The set and its rarity/region are shown in the in-game Relic Codex / 古遗物图鉴. Mythic sets can be split across two regions, so the final pieces may not be in the same region pool.</li>
+<li>Completing a set unlocks its base set bonus. The reference database also lists higher milestones when all four pieces reach 3 stars and when all four are Awakened. Check the milestone wording on the set itself before spending shards.</li>
+<li>Equipping a relic in its matching Element resonance slot adds a further slot bonus; this is separate from the collection bonus. A full set does not need to be equipped together just to activate its collection bonus.</li>
+</ul>
+<div class="callout"><strong>Collection-first rule / 优先收集:</strong> the Chinese beginner guide recommends spreading pulls across more missing relics instead of turning one relic into a high-star copy too early. As a default for an F2P/light spender, 4 new useful relics usually give more account breadth than concentrating the same progress into 1 relic. Break that rule only when a star-up completes a valuable set milestone or upgrades a key relic.</div>
+
+<h4>3 · Resonance slots: how to level them / 共鸣槽怎么强化</h4>
+<ul>
+<li>There are <b>four resonance slots for each of the five Elements</b> — 20 slots in total. Slot levels use Chrono Sand / 时之砂 and Rolla / 罗拉.</li>
+<li>Relics of an Element share that Element's resonance level. The English guide notes that unequipped relics are adjusted to the level of the <b>lowest slot</b> for their Element. That is why pushing only one slot far ahead is inefficient.</li>
+<li>Raise the four slots in your priority Element together: bring all four to the same level before taking one slot much higher. Then move to the next Element when the first group or your account's other needs justify it.</li>
+<li>Put your strongest/highest-star relics or the relics with the most useful special effects into the matching Element slots. The matching-slot bonus is an extra benefit; it does not replace collection bonuses.</li>
+</ul>
+<p><b>For your account:</b> build the four <b>Dark / 暗</b> slots first. The Chinese guides recommend Dark for Sage (贤者), while the current English T3 Arcanist guide says most of the class's T3 damage is Dark and Dark boosts strengthen the class's damage profile. After that, widen your other Elements instead of abandoning their collection bonuses.</p>
+
+<h4>4 · Star upgrades and duplicate shards / 重复遗物与升星</h4>
+<p>Duplicates provide the relic's own shards. Shards are used to combine/activate a relic and raise its stars. Same-quality universal relic shards can normally replace missing own shards one-for-one, but some event relics are restricted to their own shards. Awakening is the sixth star and has an additional universal-shard requirement.</p>
+<div class="table-wrap"><table><thead><tr><th>Rarity / 品质</th><th>Own shards to obtain + reach 5★</th><th>Extra universal shards for Awakening</th><th>Event relic note</th></tr></thead><tbody>
+<tr><td>Rare / 稀有</td><td>320</td><td>40</td><td>Some require +120 own shards to awaken</td></tr>
+<tr><td>Epic / 史诗</td><td>480</td><td>60</td><td>Some require +180 own shards to awaken</td></tr>
+<tr><td>Legendary / 传说</td><td>640</td><td>80</td><td>Some require +240 own shards to awaken</td></tr>
+<tr><td>Mythic / 奇迹</td><td>960</td><td>120</td><td>Some require +360 own shards to awaken</td></tr>
+</tbody></table></div>
+<p><span class="tag check">Reference values — verify in the upgrade prompt</span> These shard totals are from the Purrwikimania relic database. The extra own-shard requirement applies to its listed event-relic exceptions; exact requirements can differ by relic. The number shown by your in-game Ascend / 升星 screen is authoritative.</p>
+<p><b>F2P shard policy:</b></p>
+<ul>
+<li>Do not automatically star every duplicate as soon as it appears. First ask whether the duplicate completes a set or reaches a useful star milestone.</li>
+<li>Save universal shards for high-value relics whose own shards are slow or unavailable. Do not spend universal shards on a low-impact relic just to increase Power.</li>
+<li>Prioritize a strong set's 3-star milestone before chasing Awakened status across multiple pieces. Awakening all four pieces is a long-term, expensive target — not an early F2P requirement.</li>
+</ul>
+
+<h4>5 · Where to get a missing relic / 去哪里获取缺失遗物</h4>
+<ol>
+<li>Open Relic Codex / 古遗物图鉴, select the missing relic or set, then open its source information. Do this before spending a ticket or Destiny Fruit / 命运果实.</li>
+<li><b>Region / Kingdom pools (国度遗物池):</b> use the pool shown for relics tied to that region. Compare the missing pieces in the pool rather than pulling blindly from the newest region.</li>
+<li><b>Element pools (元素遗物池):</b> these are the targeted route for Element-specific relics and affinity. The Chinese guides recommend choosing the Element your class mainly deals damage with; for your T3 Dark Arcanist, that is Dark.</li>
+<li><b>Map exploration (地图探寻):</b> some relics or shards can be found in a named small area using Destiny Fruit. The Codex's source display tells you which area to search. Some regional shard drops also depend on activating the local Goddess Statue / 女神像.</li>
+<li><b>Duplicates and universal shards:</b> use these to advance a specific relic after you have identified a worthwhile target, not as a substitute for checking the source of a missing collection piece.</li>
+</ol>
+<div class="callout"><strong>Do not rely on old gacha guarantees:</strong> Chinese community guides list ticket colours and historical pity counts, but these are version-sensitive. This guide intentionally does not give fixed pull-cost or pity numbers. Read the current pool's rules and counter in-game before spending.</div>
+
+<h4>6 · Which relic stats should your Arcanist target? / 暗蚀贤者优先属性</h4>
+<p>The Chinese T3/Sage guides and the English September 2026 Arcanist guide point in the same general direction for a Dark DoT build:</p>
+<div class="table-wrap"><table><thead><tr><th>Priority</th><th>Stat / 中文</th><th>Why it matters</th></tr></thead><tbody>
+<tr><td><b>Core</b></td><td>Dark Elemental Affinity / 暗元素亲和</td><td>Supports the main T3 Dark damage profile. Dark affinity also benefits Dark-damage support such as Nyxarchon when used.</td></tr>
+<tr><td><b>Core</b></td><td>Effect Hit Rate / 效果命中</td><td>Helps Dark Bullet and other DoT/debuff effects land, especially against bosses with Effect RES.</td></tr>
+<tr><td><b>Strong damage</b></td><td>Elemental Mastery / 元素精通</td><td>Improves elemental damage output and is repeatedly highlighted by the Chinese Dark-Sage guide.</td></tr>
+<tr><td><b>Strong damage</b></td><td>Crit Rate / 会心率; Crit DMG / 会心伤害</td><td>Good permanent offensive stats when available on a relic; compare the actual relic effect and set bonus.</td></tr>
+<tr><td><b>Secondary / situational</b></td><td>ATK / 攻击; SPD / 速度; survivability</td><td>Useful depending on the relic's exact effect and whether you are building DPS, healer or PvP support.</td></tr>
+</tbody></table></div>
+<p><b>Important distinction:</b> the Chinese general Sage guide from 2025 recommends Speed as a broadly useful stat, especially for PvP. The newer English T3 Arcanist guide gives Effect Hit Rate and Elemental Mastery more importance for DPS and notes that Effect Hit Rate matters for DoTs on bosses. For your stated DPS Summon / Dark-Erosion setup, do not blindly follow the old all-purpose Speed recommendation. If you switch to a healer/support build, reassess Speed and HP.</p>
+<p>Also compare the actual flat number and effect shown on each relic rather than assuming a higher rarity or a percentage stat is automatically better. The Chinese beginner guide's fixed-stat-over-percentage rule is a useful early-game warning, not a universal formula for every relic and every account stage.</p>
+
+<h4>7 · Season levels and reset / 赛季等级与重置</h4>
+<ul>
+<li>Relic resonance has a normal progression cap and a seasonal level above that cap. The cap can rise between seasons/promotions; old guides use examples such as S1 +10 and S2 +13, but these are not guaranteed to describe your current season.</li>
+<li>Seasonal levels above the current base cap reset at season transition. The Chinese season guide explains that seasonal growth contributes to the Season Development score and is converted in part into Primostars / 原初之星 for permanent bonuses.</li>
+<li>Do not interpret this as every relic collection or every star being wiped. Collection and relic ownership are separate from the seasonal resonance overflow.</li>
+<li>The English Prydwen beginner guide still mentions a +10 reset point, while the Chinese season explanation describes changing seasonal caps. Use the current Season screen and the relic level-up preview in your own server — not a fixed old +10/+13/+16 table — before investing heavily beyond the base cap.</li>
+</ul>
+<div class="callout"><strong>Spending rule near season end:</strong> do not push resonance levels above the displayed permanent cap just because you have spare Chrono Sand. First check the Season Development scoring and the Primostar conversion shown in-game. Seasonal investment may still be worthwhile for score, but it is not the same as permanent relic-slot growth.</div>
+
+<h4>8 · Your practical progression order / 你的账号执行顺序</h4>
+<ol>
+<li><b>Open the Dark collection first.</b> Check missing Dark relics by set and source. Use rare Element tickets on Dark unless a specific non-Dark relic is needed to finish a high-value set.</li>
+<li><b>Finish useful collection bonuses.</b> Prefer new useful relics and complete sets over concentrating early duplicates into one random 5★ relic.</li>
+<li><b>Raise the four Dark resonance slots evenly.</b> Use Chrono Sand when this is your real progression bottleneck. Rolla is a lower constraint for you because you previously reported that Material Realm supplies it readily.</li>
+<li><b>Target the right relic effects.</b> Look for Dark affinity, Effect Hit Rate and Elemental Mastery, then Crit Rate/Crit DMG where the available relics offer them.</li>
+<li><b>Star up selectively.</b> Use duplicate and universal shards when they complete a valuable set-star milestone or strengthen a key relic. Keep awakening as a later goal.</li>
+<li><b>Broaden to other Elements.</b> Once your Dark collection and resonance are in a healthy position, return to missing sets and account-wide utility relics in the other Elements.</li>
+<li><b>Review at every season transition.</b> Re-check the displayed resonance cap and Primostar rules before spending on seasonal overflow.</li>
+</ol>
+
+<h4>English + Chinese reference shelf / 中英资料来源</h4>
+<p><a href="https://www.prydwen.gg/sword-x-staff/guides/beginner-guide" target="_blank" rel="noopener">Prydwen — Beginner Guide (Relic collection, sets and resonance levels)</a><br>
+<a href="https://www.prydwen.gg/sword-x-staff/guides/build-guide-arcanist" target="_blank" rel="noopener">Prydwen — Arcanist T3 Build (Dark DoT and DPS stat priorities)</a><br>
+<a href="https://www.prydwen.gg/sword-x-staff/guides/build-guide-sage" target="_blank" rel="noopener">Prydwen — Sage Build (elemental damage context and relic examples)</a><br>
+<a href="https://www.purrwikimania.com/relics" target="_blank" rel="noopener">Purrwikimania — Relic Gallery (set milestones, shard costs and relic sources)</a><br>
+<a href="https://www.taptap.cn/moment/753509809872964190" target="_blank" rel="noopener">TapTap / QY Maple — 新手必须知道的古遗物信息 (Chinese: collection-first and class relic priorities)</a><br>
+<a href="https://www.taptap.cn/moment/664801976818600150" target="_blank" rel="noopener">TapTap / 李沐泽 — 个人攻略：古遗物篇 (Chinese: resonance slots, sets, source pools and Dark-element advice)</a><br>
+<a href="https://www.taptap.cn/moment/684473110090481771" target="_blank" rel="noopener">TapTap / 歆阙 — 贤者新手入门攻略 (Chinese: Dark-Sage damage stats)</a><br>
+<a href="https://www.taptap.cn/moment/754948742896944599" target="_blank" rel="noopener">TapTap / 梦倚流年 — 赛季机制详解 (Chinese: seasonal level reset and Primostar conversion)</a></p>
+<p class="notice">This is a combined English/global and Chinese community guide, not an official game manual. The core structure is consistent across the sources, but individual relic pools, pity rules, shard exceptions and seasonal caps can change. The current in-game Codex, ticket pool, upgrade preview and Season rules always override historical guide numbers.</p>
+</div></details>
 <details class="guide" data-category="progress"><summary><div><h3>Stamina & gathering priorities</h3><div class="sub">Avoid spending scarce stamina on easily replenished resources</div></div></summary><div class="body"><span class="tag good">Working recommendation</span><ol><li><b>Chrono Sand</b> — prioritise when relic-slot progression is your bottleneck.</li><li><b>Battle Essence</b> — use for skill progression when core Techniques / Charms need stars or upgrades.</li><li><b>Raw Ore</b> — spend when equipment progression blocks current-season content.</li><li><b>Rolla</b> — lower priority if Material Realm already supplies enough for your spending.</li></ol><p>Do not follow a fixed percentage split blindly. Gather for the bottleneck you can actually use now, and avoid letting regenerating stamina sit at cap.</p><div class="callout"><strong>Account context:</strong> you previously noted Rolla is easy to obtain through Material Realm. That is why it is not the default stamina priority.</div></div></details>
 <details class="guide" data-category="progress"><summary><div><h3>Seasonal resets: what to protect</h3><div class="sub">Permanent collection vs seasonal power</div></div></summary><div class="body"><span class="tag check">Verify in current season</span><p>Previous guidance described a permanent relic-level threshold, with levels above it resetting to the previous season's cap. Gear levels and some slot upgrades were also described as seasonal.</p><p>Older notes listed relic thresholds of S1 +10, S2 +13 and S3 +16. Treat these numbers as historical claims, not guaranteed current values.</p><p>Seasonal growth may also convert into Primostars or permanent account bonuses. Check the season rules page before planning a large spend.</p></div></details>
 <details class="guide" data-category="progress account"><summary><div><h3>Fantomon plan: Aegiswing first</h3><div class="sub">Resource-aware choice, not maximum DPS choice</div></div></summary><div class="body"><span class="tag account">Account-specific</span><p>You planned Aegiswing as your first Mythic because you have many Tank aptitude materials and lack DPS Fantomon aptitude resources.</p><p>That is a reasonable resource-fit decision if the aim is to turn stored materials into a Mythic Fantomon. It is not the strongest pure-DPS choice for Arcanist; Nyxarchon was previously identified as the higher-DPS target.</p><div class="callout"><strong>Keep the distinction:</strong> Aegiswing first for resource efficiency and survivability; consider a DPS Fantomon later when its aptitude materials are available.</div><p>Check current evolution, duplicate and deployment rules in-game before committing rare materials; older notes on exact ability timings and slot stat scaling need verification.</p></div></details>
