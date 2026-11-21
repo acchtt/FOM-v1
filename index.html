@@ -8,7 +8,7 @@
 @media(max-width:760px){.shell{padding:18px 15px 50px}.hero{grid-template-columns:1fr;padding:32px 0 18px;gap:20px}.guide-grid{grid-template-columns:1fr}.top{align-items:flex-start}.edition{font-size:10px;text-align:right}.toolbar{flex-direction:column;align-items:stretch}.facts{grid-template-columns:1fr 1fr}.section-head{align-items:flex-start;flex-direction:column}.footer{flex-direction:column}}@media print{body{background:#fff;color:#111}.shell{max-width:none;padding:0}.top,.profile,.guide{background:#fff;color:#111;border-color:#ccc}.hero p,.guide .sub,.notice,.footer,.section-head p{color:#444}.guide-grid{display:block}.guide{break-inside:avoid;margin:10px 0}.guide .body{color:#222}.tabs,.toolbar,.print{display:none}.guide summary:after{display:none}}
 </style></head>
 <body><main class="shell">
-<header class="top"><div class="brand"><div class="sigil">杖</div><div><strong>SWORD × STAFF</strong><span>PLAYER FIELD GUIDE · 杖剑传说</span></div></div><div class="edition">Personal handbook · v1.2</div></header>
+<header class="top"><div class="brand"><div class="sigil">杖</div><div><strong>SWORD × STAFF</strong><span>PLAYER FIELD GUIDE · 杖剑传说</span></div></div><div class="edition">Personal handbook · v1.3</div></header>
 <section class="hero"><div><h1>A practical field guide for your account.</h1><p>One place for builds, progression, event planning and resource decisions. Account-specific notes are separated from mechanics that still need in-game verification.</p></div><aside class="profile"><h2>Current account snapshot</h2><div class="facts"><div class="fact"><small>Class / tier</small><b>T3 Sage · Arcanist</b></div><div class="fact"><small>Playstyle</small><b>F2P / light spender</b></div><div class="fact"><small>Skills</small><b>All unlocked · low stars</b></div><div class="fact"><small>Fantomon plan</small><b>Aegiswing first Mythic</b></div><div class="fact"><small>Guild</small><b>Level 9 reported</b></div><div class="fact"><small>Current focus</small><b>Relic progression</b></div></div></aside></section>
 <div class="toolbar"><label class="search"><input id="search" type="search" placeholder="Search guides, items, events…" aria-label="Search guides"></label><button class="print" onclick="window.print()">Print / Save PDF</button></div>
 <nav class="tabs" aria-label="Guide categories"><button class="tab" data-filter="all" aria-selected="true">All guides</button><button class="tab" data-filter="build" aria-selected="false">Builds</button><button class="tab" data-filter="progress" aria-selected="false">Progression</button><button class="tab" data-filter="events" aria-selected="false">Events</button><button class="tab" data-filter="economy" aria-selected="false">Economy</button><button class="tab" data-filter="account" aria-selected="false">Account notes</button></nav>
@@ -116,7 +116,122 @@
 <p class="notice">This is a combined English/global and Chinese community guide, not an official game manual. The core structure is consistent across the sources, but individual relic pools, pity rules, shard exceptions and seasonal caps can change. The current in-game Codex, ticket pool, upgrade preview and Season rules always override historical guide numbers.</p>
 </div></details>
 <details class="guide" data-category="progress"><summary><div><h3>Stamina & gathering priorities</h3><div class="sub">Avoid spending scarce stamina on easily replenished resources</div></div></summary><div class="body"><span class="tag good">Working recommendation</span><ol><li><b>Chrono Sand</b> — prioritise when relic-slot progression is your bottleneck.</li><li><b>Battle Essence</b> — use for skill progression when core Techniques / Charms need stars or upgrades.</li><li><b>Raw Ore</b> — spend when equipment progression blocks current-season content.</li><li><b>Rolla</b> — lower priority if Material Realm already supplies enough for your spending.</li></ol><p>Do not follow a fixed percentage split blindly. Gather for the bottleneck you can actually use now, and avoid letting regenerating stamina sit at cap.</p><div class="callout"><strong>Account context:</strong> you previously noted Rolla is easy to obtain through Material Realm. That is why it is not the default stamina priority.</div></div></details>
-<details class="guide" data-category="progress"><summary><div><h3>Seasonal resets: what to protect</h3><div class="sub">Permanent collection vs seasonal power</div></div></summary><div class="body"><span class="tag check">Verify in current season</span><p>Previous guidance described a permanent relic-level threshold, with levels above it resetting to the previous season's cap. Gear levels and some slot upgrades were also described as seasonal.</p><p>Older notes listed relic thresholds of S1 +10, S2 +13 and S3 +16. Treat these numbers as historical claims, not guaranteed current values.</p><p>Seasonal growth may also convert into Primostars or permanent account bonuses. Check the season rules page before planning a large spend.</p></div></details>
+<details class="guide" data-category="progress account" id="seasonal-equipment-s1-s2" open>
+<summary><div><h3>Seasonal equipment: Season 1 & 2 / 赛季装备 S1、S2</h3><div class="sub">How to build, what resets, gems, affixes and the T3 Arcanist equipment plan</div></div></summary>
+<div class="body">
+<span class="tag good">Bilingual guide · EN + 中文</span><span class="tag account">T3 Arcanist · DPS Summon / Dark-Erosion</span>
+<p><b>Most important:</b> S1 gear is a temporary power system for Season 1. It stays in your inventory after the season, but its Season Level bonus expires and <b>S1 gear cannot be transferred into S2</b>. Season 2 is the first season with affix transfer and gear refinement. Do not buy or preserve S1 equipment expecting to use it as an S2 transfer donor.</p>
+
+<h4>1 · S1 vs S2 at a glance / 两个赛季的核心差异</h4>
+<div class="table-wrap"><table><thead><tr><th>Mechanic</th><th>Season 1 · Witching Hours<br>巫影时刻</th><th>Season 2 · Crossed Paths<br>交错之径</th></tr></thead><tbody>
+<tr><td>Promotion / gear level ceiling</td><td>Expert · Lv.100</td><td>Champion · Lv.130</td></tr>
+<tr><td>Base slot enhancement cap</td><td>+100</td><td>+130</td></tr>
+<tr><td>Seasonal enhancement cap</td><td>+140</td><td>+300</td></tr>
+<tr><td><b>Maximum slot enhancement</b></td><td><b>+240</b></td><td><b>+430</b></td></tr>
+<tr><td>Highest Season Level on a drop</td><td>90</td><td>120</td></tr>
+<tr><td>Gem sockets active per piece</td><td>1 socket</td><td>2 sockets</td></tr>
+<tr><td>Affix transfer</td><td>Not available</td><td>Available on eligible Mythic+ gear</td></tr>
+<tr><td>Gear refinement / reroll</td><td>Not available</td><td>Introduced in S2</td></tr>
+</tbody></table></div>
+<p>These are the documented season caps at the top promotion sub-rank, not a promise that every new drop arrives at the cap. A drop also has its own <b>Season Level</b>, which is a large multiplier active only while that gear belongs to the current season. The Equipment database lists S1 maximum drop Season Level 90 and S2 maximum 120.</p>
+<div class="callout"><strong>Keep these numbers separate:</strong> gear level (100 / 130), slot enhancement (+240 / +430 total), and the dropped item's Season Level (up to 90 / 120) are three different things. The tooltip separates Gear Enhancement Level and Season Level.</div>
+
+<h4>2 · What carries over at the end of S1? / S1结束后保留什么</h4>
+<ul>
+<li><b>The item stays:</b> your S1 gear does not vanish from your bag.</li>
+<li><b>The S1 seasonal multiplier stops applying:</b> when the server moves to S2, S1 Season Level no longer matches the active season. Its combat value drops sharply compared with current S2 gear.</li>
+<li><b>No S1 → S2 affix transfer:</b> community guides and the transfer guide explicitly warn that S1 equipment cannot be inherited by S2 equipment. Do not pay for an S1 item with the expectation of preserving its lines.</li>
+<li><b>S2 begins a new gear cycle:</b> start replacing old pieces with S2 drops from the first S2 dungeons/regions. A lower-rarity current-season item can be worth comparing against an expired S1 piece because the S1 seasonal bonus has expired.</li>
+<li>Other permanent account progress is not the same as seasonal equipment power. Do not assume a gear reset means your relic collection, learned skills or acquired Fantomons are erased.</li>
+</ul>
+<p><b>Simple S1 end-of-season rule:</b> use S1 gear to progress through S1; do not hoard it for S2 inheritance. Keep valuable resources, not obsolete S1 affix donors.</p>
+
+<h4>3 · Upgrade order in S1 / S1强化顺序</h4>
+<p>Equipment enhancement upgrades the <b>slot</b>, not the individual item. When you equip a new piece in that slot, it inherits the slot's enhancement level. Enhancement uses Raw Ore / 粗炼石 and Rolla / 罗拉, with Refined Ore / 精锻石 needed at every 5-level breakpoint (for example +4 → +5 and +9 → +10).</p>
+<ul>
+<li>For S1, the Chinese F2P equipment advice suggests keeping the five slots reasonably balanced as you work toward the S1 level-100 range. However, the resonance bonus itself is small; the English beginner guide says not to equalize every slot just for resonance.</li>
+<li>Use +5 / +10 milestones rather than spending randomly one level at a time. Keep enough progress across the slots to satisfy seasonal missions and unlock the first gem socket.</li>
+<li>For the general Sage upgrade order, Prydwen lists <b>Armor → Weapon → Off-hand → Helmet / Shoes</b>. Treat it as a starting order; if a specific slot is blocking a stage or a key DPS stat, adjust.</li>
+<li>Do not over-invest in a piece just because it has a high displayed Power score. Compare its fixed main stat, secondary stat, random additional stats and set bonus.</li>
+</ul>
+
+<h4>4 · Upgrade order in S2 / S2强化顺序</h4>
+<p>S2 changes the socket breakpoint. The first socket opens at +1 and the second at <b>+130</b>. The Chinese gem guide recommends pushing the most important slots toward 130 first; after all five slots have their second socket, redirect your mining toward the resource needed for further slot growth.</p>
+<ol>
+<li>Start with your most important combat slots rather than raising all five equally just for resonance.</li>
+<li>For a Sage/Arcanist, use Armor → Staff → Orb → Helmet / Boots as a general slot-upgrade order, but check actual stage progress and build role.</li>
+<li>Reach <b>+130</b> on the five slots over time to unlock the second gem socket on each. Don't spend scarce premium currency chasing a high-tier gem before the socket exists.</li>
+<li>After the second sockets are open, choose between pushing key slots further and raising the remaining slots based on your seasonal missions, gear drops and actual bottleneck.</li>
+</ol>
+<div class="callout"><strong>Do not confuse this with relic resonance.</strong> Gear resonance bonuses are small and gear-slot levels are separate from the five relic Elements. Equalizing gear levels is not automatically the best damage upgrade.</div>
+
+<h4>5 · Stats for your T3 Arcanist / T3奥术贤者装备属性</h4>
+<p>The current English Arcanist guide gives the following DPS stat order. It is more useful for your build than copying a generic S2 Speed recommendation.</p>
+<div class="table-wrap"><table><thead><tr><th>Gear slot</th><th>Arcanist DPS stat priority</th><th>Notes</th></tr></thead><tbody>
+<tr><td>Staff / 法杖</td><td><b>Effect Hit Rate ≥ Elemental Mastery ≥ ATK &gt; SPD</b></td><td>DoT application and Dark DPS; keep Effect Hit Rate high enough for boss resistance.</td></tr>
+<tr><td>Orb / 法器、副手</td><td><b>Effect Hit Rate ≥ Elemental Mastery ≥ ATK &gt; SPD</b></td><td>Same DPS priority as Staff.</td></tr>
+<tr><td>Helmet / 头盔</td><td><b>DEF ≥ Physical Res = Elemental Res &gt; HP &gt; Effect Res</b></td><td>Survivability first among the defensive slots.</td></tr>
+<tr><td>Chest / 铠甲</td><td><b>DEF ≥ Physical Res = Elemental Res &gt; HP</b></td><td>Defensive stats help keep you alive while DoTs resolve.</td></tr>
+<tr><td>Boots / 战靴</td><td><b>Elemental Mastery &gt; ATK &gt; SPD</b></td><td>For this DPS setup, not the healer-speed setup.</td></tr>
+</tbody></table></div>
+<p><b>Random additional stats / 小词条:</b> Crit Rate% and Crit DMG% are high-value DPS rolls, followed by Effect Hit Rate and Elemental Mastery. SPD, SPD% and ATK/ATK% are average rather than automatic upgrades. The full piece still matters: a large power/gear-score improvement or much better secondary stats can outweigh a narrow ideal-stat ranking.</p>
+<p><b>Effect Hit Rate caution:</b> the older Chinese Sage guide used about 145% as a practical S1 benchmark against enemies with roughly 15% Effect RES so Dark Erosion would land reliably. Treat that as a historical benchmark, not a universal cap; check the boss's Effect RES and your skill's base hit chance. Prydwen's updated Arcanist guidance says Effect Hit Rate becomes especially valuable at T3 and recommends enough to make DoTs land most of the time on boss-type enemies.</p>
+<p><b>S1 vs S2 stat trend:</b> a Chinese cross-season summary broadly recommends Mastery and Resistances in S1, then more Attack Speed in S2 as player stats grow. That is a general trend, not a replacement for class-specific stat tables. For your T3 Dark-Erosion build, keep the accuracy needed for DoTs first; after that compare Elemental Mastery and ATK before chasing Speed.</p>
+
+<h4>6 · Gear sets: useful S1 and S2 examples / 套装选择</h4>
+<p>Use a set because its 2-piece stats and 4-piece effect help your build, not just because it is the highest rarity. These examples are drawn from the equipment database; set effects and translations should be checked against the live item tooltip.</p>
+<div class="table-wrap"><table><thead><tr><th>Season</th><th>Set</th><th>2-piece bonus</th><th>4-piece effect / practical reading</th></tr></thead><tbody>
+<tr><td>S1 · Lv.100</td><td><b>Repression / 压制</b></td><td>DMG Boost +4%, ATK +20%</td><td>More Technique damage to Frozen or Stunned enemies. Attractive only when your team can reliably apply those control states.</td></tr>
+<tr><td>S1 · Lv.100</td><td><b>Thunder Wrath / 雷霆之怒</b></td><td>Crit Rate +8%, Crit DMG +12%</td><td>Has a chance to trigger Thunder Strike when a nearby enemy moves. Good offensive stats, but the 4-piece trigger is situation-dependent.</td></tr>
+<tr><td>S1 · Lv.100</td><td><b>Heartsear / 炽心</b></td><td>Crit Rate +8%, ATK +20%</td><td>Defensive Fire Ring trigger when taking Technique damage. Compare this against more direct DPS options.</td></tr>
+<tr><td>S2 · Lv.130</td><td><b>Masterful / 精妙</b></td><td>Crit Rate +8%, SPD +20%</td><td>After casting a Technique, 23% chance to reset its cooldown; up to once per turn. Potentially valuable for skill-rotation builds.</td></tr>
+<tr><td>S2 · Lv.130</td><td><b>Chanting Prelude / 咏唱前奏</b></td><td>Crit Rate +8%, Crit DMG +12%</td><td>Reduces the cooldown of the longest-cooldown Technique in the loadout by 1 turn at the start.</td></tr>
+<tr><td>S2 · Lv.130</td><td><b>Pursuit / 追击</b></td><td>Accuracy +8%, SPD +20%</td><td>Technique damage has a chance to trigger Chi Explosion. More situational than a direct stat-only comparison.</td></tr>
+</tbody></table></div>
+<p><b>Your Arcanist:</b> Masterful and Chanting Prelude are worth comparing for a Technique-heavy DPS rotation; Repression is conditional on Freeze/Stun being reliably present. This is a shortlist, not a verified best-in-slot ranking. Test the actual set bonus and full four-piece stat trade-off before replacing better-stat pieces.</p>
+
+<h4>7 · Gems: one socket in S1, two in S2 / 宝石镶嵌</h4>
+<ul>
+<li><b>S1:</b> one gem socket per piece is available. Prioritize filling the five first sockets with useful, affordable gems rather than chasing a perfect expensive combination.</li>
+<li><b>S2:</b> the second socket opens at +130 enhancement. One additional socket becomes available in each later season; the reference table lists the next breakpoints at +160 and +190, but those are not S2 unlocks.</li>
+<li>There are eight gem types. Basic gems cover ATK, DEF, SPD and HP; composite gems add secondary benefits such as damage boost, damage resistance, Crit or Healing Boost. Socket availability differs by gear slot.</li>
+<li>For a DPS Arcanist, the Chinese gem guide's DPS-oriented Sage/Sorcerer approach is a reasonable starting point: combine offensive ATK/Speed/Crit options with your actual stat needs. For healing, the gem mix changes toward HP and Healing Boost. Do not assume one fixed 5-gem recipe is best for every server's market or your current stat sheet.</li>
+<li>Gem stats scale from base stats and are one part of total gear value. Avoid paying a large premium for a tiny gem-tier difference while your slot levels or equipment quality are still behind.</li>
+</ul>
+
+<h4>8 · Season 2 affix transfer and refinement / S2词条继承与洗练</h4>
+<p>These mechanics begin with S2. Eligible pieces are Mythic or higher (Chinese guides commonly call these Gold/Red). Always verify the rarity requirement in the in-game transfer screen.</p>
+<ul>
+<li><b>Same-season transfer:</b> transfer affixes between the same equipment type only (Staff → Staff, Orb → Orb, Boots → Boots). The source item on the left is destroyed. The target item keeps its own main and secondary stats; the affix lines are what transfer. Same-season transfer is free of Divinecraft Stones, but it still consumes the source gear.</li>
+<li><b>S1 equipment cannot be used as an S2 donor.</b> This is a hard season mismatch, not a fee problem.</li>
+<li><b>Cross-season transfer from S2 onward:</b> the Chinese guide lists Divinecraft Stone costs by retained affixes: 1 line = 300, 2 = 1,200, 3 = 3,200, 4 = 8,000. Unticked lines become random. Check the current transfer preview before confirming.</li>
+<li><b>Refinement:</b> available on Mythic or higher gear. It rerolls unlocked affix lines. Locking a line itself is free; the roll cost rises with the number locked: 0 locked = 100 Stones, 1 = 300, 2 = 1,200, 3 = 3,200.</li>
+<li><b>Unique affixes:</b> a Unique effect only activates once across your gear even if multiple pieces carry it. Do not spend stones trying to duplicate a Unique line. Gear effects can stack with Techniques/Charms, but the gear effect itself is not treated as a Technique for Technique-triggered effects.</li>
+</ul>
+<div class="callout"><strong>F2P / light-spender rule:</strong> keep a good S2 Mythic+ donor only when its affixes are genuinely worth transferring. Do not burn a perfect piece just to move one mediocre line. Start refinement with zero lines locked (100 Stones), and lock a line only when the expected improvement justifies the sharply higher cost.</div>
+
+<h4>9 · Your season-by-season checklist / 实际执行清单</h4>
+<div class="table-wrap"><table><thead><tr><th>Stage</th><th>What you should do</th></tr></thead><tbody>
+<tr><td><b>Season 1 opening</b></td><td>Equip current S1 gear; prioritize useful secondary stats (Effect Hit Rate / Elemental Mastery on Staff and Orb for Dark DoT); fill first gem sockets; enhance in +5/+10 milestones.</td></tr>
+<tr><td><b>Season 1 middle</b></td><td>Replace with better-current-season pieces when the total stat gain justifies it. Don't chase random affixes at the expense of a meaningful gear-level increase.</td></tr>
+<tr><td><b>Season 1 ending</b></td><td>Do not buy or keep S1 gear as an S2 inheritance donor. Use remaining S1 power to clear content and seasonal goals, then prepare to replace it.</td></tr>
+<tr><td><b>Season 2 opening</b></td><td>Start with S2 drops. Compare item level, Season Level, rarity, set and stat rolls. S2 is the first season where Mythic+ affixes can be transferred/refined.</td></tr>
+<tr><td><b>Season 2 early progression</b></td><td>Prioritize key slots toward +130 to unlock the second gem socket. For your build, do not sacrifice DoT Effect Hit Rate just to follow the broad Speed trend.</td></tr>
+<tr><td><b>Season 2 middle/late</b></td><td>Keep one or two genuinely valuable donor pieces; refine only when you can afford the stones. Avoid duplicate Unique effects. Start planning cross-season inheritance only for strong S2 affix lines.</td></tr>
+</tbody></table></div>
+
+<h4>English + Chinese references / 中英资料来源</h4>
+<p><a href="https://www.prydwen.gg/sword-x-staff/guides/beginner-guide" target="_blank" rel="noopener">Prydwen — Beginner Guide (gear slots, enhancement materials, seasonal resets and class upgrade order)</a><br>
+<a href="https://www.prydwen.gg/sword-x-staff/guides/build-guide-arcanist" target="_blank" rel="noopener">Prydwen — Arcanist T3 Build (DPS stat priorities and Effect Hit Rate for DoTs)</a><br>
+<a href="https://www.prydwen.gg/sword-x-staff/guides/gear-refinement-and-affix-transfer" target="_blank" rel="noopener">Prydwen — Gear Refinement and Affix Transfer (S2 mechanics and costs)</a><br>
+<a href="https://www.purrwikimania.com/equipment" target="_blank" rel="noopener">Purrwikimania — Equipment database (season caps, Season Level scaling, sockets and set bonuses)</a><br>
+<a href="https://www.taptap.cn/moment/713452484755982871?group_id=819278" target="_blank" rel="noopener">TapTap / 『白』— 装备攻略：如何选择装备 (S1/S2 level thresholds, Sage stats and inheritance)</a><br>
+<a href="https://www.taptap.cn/moment/724708265870492740" target="_blank" rel="noopener">TapTap — 杖剑攻略整合 (S1/S2 secondary-stat trends)</a><br>
+<a href="https://www.taptap.cn/moment/753535982740964341" target="_blank" rel="noopener">TapTap / QY Maple — 全职业宝石搭配攻略 (S1 balanced enhancement, S2 +130 socket strategy and Sage gems)</a><br>
+<a href="https://www.taptap.cn/moment/709567783645479549" target="_blank" rel="noopener">TapTap / 『白』— S2 总贴 (S2 transfer eligibility and season-specific cautions)</a><br>
+<a href="https://www.taptap.cn/moment/691835652467068063" target="_blank" rel="noopener">TapTap — 装备继承与洗练攻略 (Divinecraft Stone transfer and refinement costs)</a></p>
+<p class="notice">This guide combines English reference data and Chinese player guides. Purrwikimania provides the numeric equipment database; Prydwen provides updated English mechanics and Arcanist stats; TapTap provides player-tested S1/S2 routes and practical recommendations. Some Chinese stat priorities are broad community trends, not guaranteed class best-in-slot. Use the current equipment tooltip, enhancement preview and transfer screen as final authority. Season caps and item pools may change in later updates.</p>
+</div></details>
 <details class="guide" data-category="progress account"><summary><div><h3>Fantomon plan: Aegiswing first</h3><div class="sub">Resource-aware choice, not maximum DPS choice</div></div></summary><div class="body"><span class="tag account">Account-specific</span><p>You planned Aegiswing as your first Mythic because you have many Tank aptitude materials and lack DPS Fantomon aptitude resources.</p><p>That is a reasonable resource-fit decision if the aim is to turn stored materials into a Mythic Fantomon. It is not the strongest pure-DPS choice for Arcanist; Nyxarchon was previously identified as the higher-DPS target.</p><div class="callout"><strong>Keep the distinction:</strong> Aegiswing first for resource efficiency and survivability; consider a DPS Fantomon later when its aptitude materials are available.</div><p>Check current evolution, duplicate and deployment rules in-game before committing rare materials; older notes on exact ability timings and slot stat scaling need verification.</p></div></details>
 </div></section>
 <section><div class="section-head"><h2>Arcanist build notes</h2><p>Use these as a shortlist, not an unquestioned meta prescription.</p></div><div class="guide-grid">
